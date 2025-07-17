@@ -1,0 +1,17 @@
+To back up the scatter plots and box plots I did for sqft vs price, beds vs price, and bath vs price. + for heatmap
+
+
+Pearson correlation coefficients showing how strongly each variable is related to price:
+
+Square footage (sqft) vs price: 0.583 → Moderate positive correlation- strongest.
+
+Bathrooms (bath) vs price: 0.478 → Moderate positive correlation
+
+Bedrooms (bed) vs price: 0.349 → Weak to moderate positive correlation
+
+Conclusion:
+Square footage correlates most strongly with higher price.
+
+Bathrooms are next.
+
+Bedrooms have the weakest correlation to price out of the three.
