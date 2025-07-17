@@ -64,8 +64,8 @@ def load_house_data():
                 'mid': {'min': 796667, 'max': 1398333, 'count': 0},
                 'high': {'min': 1398334, 'max': 2000000, 'count': 0}
             },
-            'bed_distribution': house_data['bed'].value_counts().to_dict(),
-            'bath_distribution': house_data['bath'].value_counts().to_dict()
+            'bed_distribution': {str(k): v for k, v in house_data['bed'].value_counts().to_dict().items()},
+            'bath_distribution': {str(k): v for k, v in house_data['bath'].value_counts().to_dict().items()}
         }
         
         # Calculate price range counts
