@@ -101,3 +101,122 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "Create a comprehensive house price predictor website for Southern California homes that combines data analysis and image classification. The predictor should use both traditional data inputs (location, sqft, beds, bath) and Google Teachable Machine image classification. The website should showcase the analysis with visualizations and provide an interactive prediction interface."
+
+backend:
+  - task: "Install required packages for data processing and ML"
+    implemented: false
+    working: "NA"
+    file: "requirements.txt"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Starting backend development - need to install pandas, numpy, requests for data processing and TM integration"
+
+  - task: "Create house data models and CSV processing"
+    implemented: false
+    working: "NA"
+    file: "server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Need to create models for house data and load CSV dataset"
+
+  - task: "Google Teachable Machine integration"
+    implemented: false
+    working: "NA"
+    file: "server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Need to integrate with TM model: https://teachablemachine.withgoogle.com/models/KjXP4uvx0/"
+
+  - task: "Image upload and prediction endpoints"
+    implemented: false
+    working: "NA"
+    file: "server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Create endpoints for image upload and price prediction"
+
+  - task: "Data-driven price prediction algorithm"
+    implemented: false
+    working: "NA"
+    file: "server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Build prediction using sqft correlation and location insights"
+
+frontend:
+  - task: "Multi-section website structure"
+    implemented: false
+    working: "NA"
+    file: "App.js"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Create navigation and sections for overview, classifier, visualizations, etc."
+
+  - task: "Interactive prediction interface"
+    implemented: false
+    working: "NA"
+    file: "components/"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Build form for location, sqft, beds, bath input + image upload"
+
+  - task: "Visualization display components"
+    implemented: false
+    working: "NA"
+    file: "components/"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "main"
+        comment: "Display provided charts, maps, and analysis images"
+
+metadata:
+  created_by: "main_agent"
+  version: "1.0"
+  test_sequence: 0
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "Install required packages for data processing and ML"
+    - "Create house data models and CSV processing"
+    - "Google Teachable Machine integration"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+  - agent: "main"
+    message: "Starting implementation of house price predictor with dual approach: data analysis + image classification using Teachable Machine"
