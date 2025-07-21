@@ -156,6 +156,9 @@ frontend:
       - working: "NA"
         agent: "main"
         comment: "Added section explanation and comprehensive AI model explanation covering CNN architecture, data preprocessing, evaluation, and limitations"
+      - working: "NA"
+        agent: "main"
+        comment: "Updated per user request: Removed limitations section, made AI explanation collapsible dropdown for cleaner UI, added ChevronDown/ChevronUp icons for better UX"
 
   - task: "SEO improvements"
     implemented: true
