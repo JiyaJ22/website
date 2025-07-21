@@ -161,6 +161,43 @@ const ComparativeAnalysis = () => {
           </div>
         </div>
 
+        {/* Box Plots */}
+        <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
+          <div className="flex items-center space-x-2 mb-6">
+            <BarChart3 size={24} className="text-purple-600" />
+            <h2 className="text-2xl font-bold text-gray-900">Box Plot Analysis</h2>
+          </div>
+          
+          <div className="mb-6">
+            <img 
+              src="/NEW factor vs price box plots" 
+              alt="Multi-factor Box Plot Analysis"
+              className="w-full max-w-5xl mx-auto rounded-lg shadow-sm"
+              onError={(e) => {
+                e.target.style.display = 'none';
+                e.target.nextSibling.style.display = 'block';
+              }}
+            />
+            <div className="text-center text-gray-500 mt-4" style={{display: 'none'}}>
+              Multi-factor Box Plot Analysis
+            </div>
+          </div>
+          
+          <div className="bg-purple-50 p-4 rounded-lg">
+            <h3 className="font-semibold text-purple-900 mb-3">Box Plot Insights</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-purple-800">
+              <div>
+                <p className="font-medium mb-1">📊 Distribution Analysis:</p>
+                <p>Box plots reveal the spread and central tendencies of house prices across different property features, helping identify outliers and typical price ranges.</p>
+              </div>
+              <div>
+                <p className="font-medium mb-1">🎯 Key Patterns:</p>
+                <p>Shows how property characteristics like square footage, bedrooms, and bathrooms create distinct price distributions and market segments.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Scatter Plots */}
         <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
           <div className="flex items-center space-x-2 mb-6">
