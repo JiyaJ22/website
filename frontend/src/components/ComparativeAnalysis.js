@@ -170,7 +170,7 @@ const ComparativeAnalysis = () => {
           
           <div className="mb-6">
             <img 
-              src="/app/images/NEW 3 factor vs price scatterplot" 
+              src="/NEW 3 factor vs price scatterplot" 
               alt="Multi-factor Scatter Plot Analysis"
               className="w-full max-w-5xl mx-auto rounded-lg shadow-sm"
               onError={(e) => {
