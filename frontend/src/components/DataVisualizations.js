@@ -264,6 +264,16 @@ const DataVisualizations = () => {
               <h2 className="text-2xl font-bold text-gray-900">Bathrooms Distribution</h2>
             </div>
             
+            <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
+              <div className="flex items-start space-x-2">
+                <Info size={16} className="text-blue-600 mt-0.5" />
+                <div className="text-sm text-blue-800">
+                  <p className="font-medium mb-1">Understanding Bathroom Numbers</p>
+                  <p>For all the numbers shown here, the first number refers to full bathrooms, and the second refers to half bathrooms. So if a value is 5.2, it means 5 full baths and 2 half baths.</p>
+                </div>
+              </div>
+            </div>
+            
             <div className="mb-4">
               <img 
                 src="/app/images/bthrm pie chart.png" 
