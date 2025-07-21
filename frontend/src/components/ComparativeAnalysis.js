@@ -94,7 +94,7 @@ const ComparativeAnalysis = () => {
           
           <div className="mb-6">
             <img 
-              src="/app/images/heatmap.png" 
+              src="/heatmap.png" 
               alt="Correlation Matrix Heatmap"
               className="w-full max-w-3xl mx-auto rounded-lg shadow-sm"
               onError={(e) => {
