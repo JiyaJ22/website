@@ -126,7 +126,7 @@ const DataVisualizations = () => {
           
           <div className="mb-6">
             <img 
-              src="/house prices historgram.png" 
+              src="/app/images/house prices historgram.png" 
               alt="House Price Distribution Histogram"
               className="w-full max-w-4xl mx-auto rounded-lg shadow-sm"
               onError={(e) => {
