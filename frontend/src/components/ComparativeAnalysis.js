@@ -247,43 +247,6 @@ const ComparativeAnalysis = () => {
           </div>
         </div>
 
-        {/* Box Plots */}
-        <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
-          <div className="flex items-center space-x-2 mb-6">
-            <BarChart3 size={24} className="text-green-600" />
-            <h2 className="text-2xl font-bold text-gray-900">Box Plot Analysis</h2>
-          </div>
-          
-          <div className="mb-6">
-            <img 
-              src="/app/images/NEW factor vs price box plots" 
-              alt="Box Plot Analysis"
-              className="w-full max-w-5xl mx-auto rounded-lg shadow-sm"
-              onError={(e) => {
-                e.target.style.display = 'none';
-                e.target.nextSibling.style.display = 'block';
-              }}
-            />
-            <div className="text-center text-gray-500 mt-4" style={{display: 'none'}}>
-              Box Plot Analysis
-            </div>
-          </div>
-          
-          <div className="bg-green-50 p-4 rounded-lg">
-            <h3 className="font-semibold text-green-900 mb-2">What Box Plots Reveal</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-green-800">
-              <div>
-                <p className="font-medium mb-1">📊 Data Distribution:</p>
-                <p>Box plots show the spread of prices for different property features, revealing outliers and median values.</p>
-              </div>
-              <div>
-                <p className="font-medium mb-1">📈 Price Ranges:</p>
-                <p>Compare how price ranges vary across different numbers of bedrooms, bathrooms, and square footage ranges.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
         {/* Key Insights */}
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
           <div className="flex items-center space-x-2 mb-4">
