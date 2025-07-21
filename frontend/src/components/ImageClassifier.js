@@ -21,6 +21,7 @@ const ImageClassifier = () => {
     city: ""
   });
   const [combinedPrediction, setCombinedPrediction] = useState(null);
+  const [isAIExplanationOpen, setIsAIExplanationOpen] = useState(false);
   const fileInputRef = useRef(null);
 
   // Load Teachable Machine model
