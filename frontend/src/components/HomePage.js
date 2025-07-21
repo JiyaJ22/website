@@ -78,16 +78,16 @@ const HomePage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/classifier"
-                className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors flex items-center space-x-2"
+                className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors flex items-center space-x-2 shadow-lg"
               >
-                <Camera size={20} />
-                <span>Try Image Classifier</span>
+                <Camera size={24} />
+                <span>Try the Price Predictor</span>
               </Link>
               <Link
                 to="/visualizations"
-                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors flex items-center space-x-2"
+                className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-600 transition-colors flex items-center space-x-2"
               >
-                <BarChart3 size={20} />
+                <BarChart3 size={24} />
                 <span>View Data Analysis</span>
               </Link>
             </div>
