@@ -201,7 +201,11 @@ const ImageClassifier = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">House Price Image Classifier</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+            This section demonstrates cutting-edge machine learning by analyzing house images to predict price ranges. 
+            It showcases how AI can extract valuable insights from visual data in real estate markets.
+          </p>
+          <p className="text-lg text-gray-500 max-w-3xl mx-auto">
             Upload a house image and provide property details to get both AI-powered image classification
             and data-driven price predictions
           </p>
