@@ -74,10 +74,23 @@ const LocationAnalysis = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Location Analysis</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+            This section examines how location dramatically affects housing prices across Southern California. 
+            Geographic analysis is crucial for understanding market dynamics and regional pricing patterns.
+          </p>
+          <p className="text-lg text-gray-500 max-w-3xl mx-auto mb-6">
             Analyze price variations across Southern California cities and regions.
             Location has a huge influence on house prices, with coastal cities typically commanding premium prices.
           </p>
+          <div className="max-w-4xl mx-auto p-4 bg-amber-50 border border-amber-200 rounded-lg">
+            <div className="flex items-start space-x-2">
+              <Info size={16} className="text-amber-600 mt-0.5" />
+              <div className="text-sm text-amber-800">
+                <p className="font-medium mb-1">Important Note About City Rankings</p>
+                <p>These city rankings are based solely on the dataset used in this project. They do not reflect the most or least expensive cities in the U.S. or California overall — just in this specific dataset.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Overview Stats */}
