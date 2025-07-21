@@ -269,16 +269,16 @@ const HomePage = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/classifier"
-              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors flex items-center space-x-2"
+              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors flex items-center space-x-2 shadow-lg"
             >
-              <Camera size={20} />
-              <span>Start Predicting</span>
+              <Camera size={24} />
+              <span>Try the Price Predictor</span>
             </Link>
             <Link
               to="/conclusion"
-              className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors flex items-center space-x-2"
+              className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-600 transition-colors flex items-center space-x-2"
             >
-              <Target size={20} />
+              <Target size={24} />
               <span>View Key Insights</span>
             </Link>
           </div>
