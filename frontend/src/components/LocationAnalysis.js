@@ -235,7 +235,7 @@ const LocationAnalysis = () => {
           
           <div className="mb-6">
             <img 
-              src="/app/images/bottom 150 cities by house price" 
+              src="/bottom 150 cities by house price" 
               alt="Bottom 150 Cities by House Price"
               className="w-full max-w-5xl mx-auto rounded-lg shadow-sm"
               onError={(e) => {
