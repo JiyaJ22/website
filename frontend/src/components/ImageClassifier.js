@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Camera, Upload, Zap, AlertCircle, CheckCircle, Info } from "lucide-react";
+import { Camera, Upload, Zap, AlertCircle, CheckCircle, Info, Brain } from "lucide-react";
 import * as tf from '@tensorflow/tfjs';
 import axios from "axios";
 
