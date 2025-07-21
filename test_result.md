@@ -209,6 +209,7 @@ test_plan:
     - "ImageClassifier component improvements"
     - "SEO improvements"
     - "Enhanced calls to action"
+    - "User uploaded images integration"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
