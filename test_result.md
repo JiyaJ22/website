@@ -223,5 +223,7 @@ agent_communication:
     message: "Completed Phase 2: Updated SEO meta tags, page title, and added Open Graph/Twitter tags. Enhanced CTAs with better styling and clearer text."
   - agent: "main"  
     message: "All requested improvements implemented successfully. Ready for frontend testing to ensure all changes work correctly and maintain existing functionality."
+  - agent: "main"
+    message: "Per user request: Removed limitations section from AI explanation, made it collapsible dropdown, and integrated all user's uploaded images from GitHub properly. Images now display correctly with proper paths. UI is cleaner and less overwhelming."
   - agent: "testing"
     message: "Backend API testing completed successfully. All 5 endpoints (health check, stats, cities, predict, visualization-data) are working perfectly with no regressions from frontend changes. Backend is unchanged and fully functional. Price prediction accuracy verified with realistic results. Ready for frontend testing of the implemented improvements."
