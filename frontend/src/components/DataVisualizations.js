@@ -75,8 +75,12 @@ const DataVisualizations = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Data Visualizations</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore comprehensive charts showing price distributions, property features, and market patterns
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+            This section presents comprehensive visual analysis of our Southern California housing dataset. 
+            Understanding these patterns helps reveal market trends and pricing factors that drive our predictive models.
+          </p>
+          <p className="text-lg text-gray-500 max-w-3xl mx-auto">
+            Explore charts showing price distributions, property features, and market patterns
             across {stats?.total_houses?.toLocaleString()} Southern California homes
           </p>
         </div>
