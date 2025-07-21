@@ -276,7 +276,7 @@ const DataVisualizations = () => {
             
             <div className="mb-4">
               <img 
-                src="/app/images/bthrm pie chart.png" 
+                src="/bthrm pie chart.png" 
                 alt="Bathrooms Distribution Pie Chart"
                 className="w-full max-w-md mx-auto rounded-lg shadow-sm"
                 onError={(e) => {
