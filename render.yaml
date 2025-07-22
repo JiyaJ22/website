@@ -12,11 +12,13 @@ services:
       - key: DB_NAME
         value: "Project 0"
 
-  - type: static
+  - type: web
     name: creo-frontend
+    env: node
     rootDir: frontend
     buildCommand: yarn install && yarn build
-    staticPublishPath: build
+    startCommand: yarn global add serve && serve -s build -l 3000
+    plan: free
     envVars:
       - key: REACT_APP_BACKEND_URL
         value: https://creo-backend.onrender.com
