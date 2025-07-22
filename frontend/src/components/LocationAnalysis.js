@@ -143,7 +143,7 @@ const LocationAnalysis = () => {
           
           <div className="mb-6">
             <img 
-              src="/map w:o names.png" 
+              src="/map without names.png" 
               alt="Southern California House Price Map"
               className="w-full max-w-4xl mx-auto rounded-lg shadow-sm"
               onError={(e) => {
