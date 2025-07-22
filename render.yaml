@@ -8,9 +8,9 @@ services:
     plan: free
     envVars:
       - key: MONGO_URL
-        value:mongodb+srv://jiyajoshi:<R9CQ36q2V.gwsi.>@cluster0.4gsehd9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+        value: "mongodb+srv://jiyajoshi:<R9CQ36q2V.gwsi.>@cluster0.4gsehd9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
       - key: DB_NAME
-        value: Project 0
+        value: "Project 0"
 
   - type: static
     name: creo-frontend
