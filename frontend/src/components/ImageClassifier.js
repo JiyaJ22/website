@@ -500,23 +500,10 @@ const ImageClassifier = () => {
                     {formatPrice(prediction.price_range.min)} - {formatPrice(prediction.price_range.max)}
                   </p>
                 </div>
-                
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <p className="text-sm font-medium text-gray-700">Confidence</p>
                   <p className="text-xl font-bold text-gray-900">{(prediction.confidence * 100).toFixed(1)}%</p>
                 </div>
-              </div>
-              
-              <div className="space-y-3">
-                <p className="text-sm font-medium text-gray-700">All Predictions</p>
-                {prediction.all_predictions.map((pred, index) => (
-                  <div key={index} className="flex justify-between items-center p-2 bg-gray-50 rounded">
-                    <span className="font-medium">{pred.class}</span>
-                    <span className="text-sm text-gray-600">
-                      {Number.isFinite(pred.confidence) ? (pred.confidence * 100).toFixed(1) + '%' : 'N/A'}
-                    </span>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
