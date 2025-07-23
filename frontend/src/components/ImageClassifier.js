@@ -486,7 +486,7 @@ const ImageClassifier = () => {
             <div className="px-6 pb-6 space-y-8">
               {/* Machine Learning Model Section */}
               <div className="border-l-4 border-purple-500 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">🧠 Machine Learning Model Architecture</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">🧠 Machine Learning Model Architecture (Image Classifier)</h3>
                 <div className="space-y-3 text-gray-700">
                   <p>
                     <strong>Model Type:</strong> Our image classifier uses a <strong>Convolutional Neural Network (CNN)</strong> 
@@ -497,6 +497,25 @@ const ImageClassifier = () => {
                     <strong>Architecture:</strong> The model employs transfer learning, built on a pre-trained MobileNet backbone 
                     that has been fine-tuned on our specific house image dataset. This approach leverages existing knowledge 
                     from millions of images while adapting to our house price prediction task.
+                  </p>
+                </div>
+              </div>
+
+              {/* Data-Driven Price Prediction Section */}
+              <div className="border-l-4 border-green-600 pl-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">📊 Data-Driven Price Prediction (Regression Model)</h3>
+                <div className="space-y-3 text-gray-700">
+                  <p>
+                    <strong>Model Type:</strong> In addition to image classification, our predictor uses a <strong>statistical regression model</strong> trained on thousands of real Southern California home sales. This model analyzes key property features—square footage, number of bedrooms, number of bathrooms, and location (city)—to estimate a realistic price for any given house.
+                  </p>
+                  <p>
+                    <strong>Feature Importance:</strong> Statistical analysis of the dataset revealed that <strong>square footage</strong> is the strongest predictor of price (correlation 0.58), followed by <strong>location</strong> (city), and then the number of bedrooms and bathrooms. The model assigns weights to each feature based on their impact on price, learned from historical data.
+                  </p>
+                  <p>
+                    <strong>How It Works:</strong> When you enter property details (sqft, beds, baths, city), the model applies a mathematical formula (regression equation) to calculate the predicted price. This formula was derived from the dataset and is designed to generalize well to new, unseen properties.
+                  </p>
+                  <p>
+                    <strong>Combined Prediction:</strong> If you provide both an image and property details, the app shows both the AI-powered image classification and the data-driven price estimate, giving you a more comprehensive prediction.
                   </p>
                 </div>
               </div>
@@ -552,9 +571,8 @@ const ImageClassifier = () => {
               <div className="p-4 bg-gray-50 rounded-lg">
                 <h4 className="font-semibold text-gray-900 mb-2">🔬 Technical Implementation Note</h4>
                 <p className="text-sm text-gray-700">
-                  This implementation demonstrates the practical application of computer vision in real estate valuation. 
-                  The model combines traditional machine learning techniques with modern neural network architectures 
-                  to provide actionable insights for property price estimation.
+                  This implementation demonstrates the practical application of computer vision and statistical modeling in real estate valuation. 
+                  By combining traditional regression analysis with modern neural network architectures, the app provides actionable insights for property price estimation—whether you have a photo, property details, or both.
                 </p>
               </div>
             </div>
