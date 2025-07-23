@@ -252,16 +252,19 @@ const ImageClassifier = () => {
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">📊 Data-Driven Price Prediction (Regression Model)</h3>
                 <div className="space-y-3 text-gray-700">
                   <p>
-                    The property details and combined prediction sections now use a retrained linear regression model. This model was trained on the same dataset but with outliers removed, and uses one-hot encoding for city, as well as bedrooms, bathrooms, and square footage. This approach provides more accurate and robust price predictions.
+                    Our data-driven price prediction uses a linear regression model trained on thousands of real Southern California home sales. This model analyzes key property features—square footage, number of bedrooms, number of bathrooms, and city (using one-hot encoding)—to estimate a realistic price for any given house.
                   </p>
                   <p>
-                    <strong>Feature Importance:</strong> Statistical analysis of the dataset revealed that <strong>square footage</strong> is the strongest predictor of price (correlation 0.58), followed by <strong>location</strong> (city), and then the number of bedrooms and bathrooms. The model assigns weights to each feature based on their impact on price, learned from historical data.
+                    Behind the scenes, the model works by learning the relationship between these features and the actual sale price. For each city, a separate coefficient is learned, so the model can adjust for local market conditions. The model also learns how much each additional bedroom, bathroom, or square foot typically adds to (or subtracts from) the price, based on the data.
                   </p>
                   <p>
-                    <strong>How It Works:</strong> When you enter property details (sqft, beds, baths, city), the model applies a mathematical formula (regression equation) to calculate the predicted price. This formula was derived from the dataset and is designed to generalize well to new, unseen properties.
+                    When you enter property details, the app constructs a feature vector that matches the model's training format, including a one-hot encoded city. The model then multiplies each feature by its learned coefficient, sums them up, and adds an intercept to produce the predicted price.
                   </p>
                   <p>
-                    <strong>Combined Prediction:</strong> If you provide both an image and property details, the app shows both the AI-powered image classification and the data-driven price estimate, giving you a more comprehensive prediction.
+                    The model's performance is measured by the R² (R-squared) score, which tells us how much of the variation in house prices can be explained by the model. An R² of 0.71 means that 71% of the price variation is captured by the model's features, which is considered strong for real estate data.
+                  </p>
+                  <p>
+                    By removing outliers and using robust encoding, this regression model provides accurate, interpretable, and data-driven price predictions for Southern California homes.
                   </p>
                 </div>
               </div>
@@ -545,12 +548,14 @@ const ImageClassifier = () => {
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-gray-900">Key Factors</h3>
                 <div className="space-y-2">
-                  {Object.entries(combinedPrediction.data_prediction.factors).map(([key, value]) => (
-                    <div key={key} className="text-sm">
-                      <span className="font-medium text-gray-700">{key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}: </span>
-                      <span className="text-gray-600">{value}</span>
-                    </div>
-                  ))}
+                  {Object.entries(combinedPrediction.data_prediction.factors)
+                    .filter(([key]) => key !== 'features_used')
+                    .map(([key, value]) => (
+                      <div key={key} className="text-sm">
+                        <span className="font-medium text-gray-700">{key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}: </span>
+                        <span className="text-gray-600">{key === 'model' ? 'Linear regression' : value}</span>
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>
