@@ -420,17 +420,21 @@ const ImageClassifier = () => {
                 <div className="bg-blue-50 p-4 rounded-lg">
                   <p className="text-sm font-medium text-blue-700">Predicted Price</p>
                   <p className="text-2xl font-bold text-blue-900">
-                    {formatPrice(combinedPrediction.data_prediction.predicted_price)}
+                    {Number.isFinite(combinedPrediction.data_prediction.predicted_price)
+                      ? formatPrice(combinedPrediction.data_prediction.predicted_price)
+                      : 'N/A'}
                   </p>
                   <p className="text-sm text-blue-600">
-                    Range: {combinedPrediction.data_prediction.price_range}
+                    Range: {combinedPrediction.data_prediction.price_range || 'N/A'}
                   </p>
                 </div>
                 
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <p className="text-sm font-medium text-gray-700">Confidence</p>
                   <p className="text-lg font-bold text-gray-900">
-                    {(combinedPrediction.data_prediction.confidence * 100).toFixed(1)}%
+                    {Number.isFinite(combinedPrediction.data_prediction.confidence)
+                      ? (combinedPrediction.data_prediction.confidence * 100).toFixed(1) + '%'
+                      : 'N/A'}
                   </p>
                 </div>
               </div>
