@@ -512,7 +512,9 @@ const ImageClassifier = () => {
                 {prediction.all_predictions.map((pred, index) => (
                   <div key={index} className="flex justify-between items-center p-2 bg-gray-50 rounded">
                     <span className="font-medium">{pred.class}</span>
-                    <span className="text-sm text-gray-600">{(pred.confidence * 100).toFixed(1)}%</span>
+                    <span className="text-sm text-gray-600">
+                      {Number.isFinite(pred.confidence) ? (pred.confidence * 100).toFixed(1) + '%' : 'N/A'}
+                    </span>
                   </div>
                 ))}
               </div>
