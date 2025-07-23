@@ -157,7 +157,12 @@ def predict_price_from_data(sqft: int, bed: int, bath: float, city: str) -> Dict
     
     # Ensure reasonable bounds
     predicted_price = max(100000, min(predicted_price, 3000000))
-    
+
+    # Defensive check: ensure predicted_price is a valid number
+    if not isinstance(predicted_price, (int, float)) or pd.isna(predicted_price) or np.isnan(predicted_price):
+        logging.warning(f"predicted_price is not a valid number: {predicted_price}. Setting to 0.")
+        predicted_price = 0.0
+
     factors = {
         'sqft_factor': f"Square footage is the strongest predictor (correlation: 0.58)",
         'city_factor': f"City adjustment factor: {city_factor:.2f}",
@@ -167,7 +172,7 @@ def predict_price_from_data(sqft: int, bed: int, bath: float, city: str) -> Dict
     }
     
     return {
-        'predicted_price': predicted_price,
+        'predicted_price': float(predicted_price),
         'price_range': get_price_range(predicted_price),
         'confidence': min(0.85, max(0.60, city_factor * 0.8)),  # Higher confidence for known cities
         'factors': factors
