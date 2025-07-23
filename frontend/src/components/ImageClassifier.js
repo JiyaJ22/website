@@ -551,11 +551,14 @@ const ImageClassifier = () => {
                   {Object.entries(combinedPrediction.data_prediction.factors)
                     .filter(([key]) => key !== 'features_used')
                     .map(([key, value]) => (
-                    <div key={key} className="text-sm">
-                      <span className="font-medium text-gray-700">{key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}: </span>
-                        <span className="text-gray-600">{key === 'model' ? 'Linear regression' : value}</span>
-                    </div>
-                  ))}
+                      {Object.entries(combinedPrediction.data_prediction.factors)
+                        .filter(([key]) => key !== 'features_used')
+                        .map(([key, value]) => (
+                          <div key={key} className="text-sm">
+                            <span className="font-medium text-gray-700">{key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}: </span>
+                            <span className="text-gray-600">{key === 'model' ? 'Linear regression' : value}</span>
+                          </div>
+                        ))}
                 </div>
               </div>
             </div>
