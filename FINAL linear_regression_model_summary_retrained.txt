@@ -1,0 +1,407 @@
+﻿R^2 score (test): 0.707
+R^2 score (train): 0.714
+Intercept: 311775.7497171513
+Coefficients:
+bed: -13288.421092955548
+bath: 15849.54929044852
+sqft: 182.80085706353566
+citi_29 Palms, CA: -290371.33291494334
+citi_Acton, CA: -133133.59997122153
+citi_Adelanto, CA: -367576.9311264741
+citi_Agoura Hills, CA: 185068.96838682785
+citi_Agua Dulce, CA: -14127.983892487566
+citi_Aguanga, CA: -260265.16721077776
+citi_Alhambra, CA: 198108.1966811822
+citi_Aliso Viejo, CA: 192879.04248335471
+citi_Alpine, CA: -81542.5315507947
+citi_Alta Loma, CA: -38332.87467096967
+citi_Altadena, CA: 257169.34502564254
+citi_Anaheim Hills, CA: 152815.77334232087
+citi_Anaheim, CA: 29359.566542265547
+citi_Angelus Oaks, CA: -223940.92822546698
+citi_Anza, CA: -317799.9243765278
+citi_Apple Valley, CA: -348052.67063382675
+citi_Arcadia, CA: 398031.3225420102
+citi_Arleta, CA: -61112.26635622213
+citi_Arroyo Grande, CA: 154280.53333664362
+citi_Artesia, CA: 39582.13963932813
+citi_Arvin, CA: -330487.6568309349
+citi_Atascadero, CA: -35901.362102220824
+citi_Avila Beach, CA: 140471.71605892116
+citi_Azusa, CA: 3458.022777227685
+citi_Bakersfield, CA: -351796.01814441197
+citi_Baldwin Park, CA: -17442.011288678914
+citi_Banning, CA: -256728.86109424214
+citi_Barstow, CA: -403117.48461866926
+citi_Bear Valley Springs, CA: -309756.0852643739
+citi_Beaumont, CA: -317440.7420061325
+citi_Bell, CA: -90617.26032989575
+citi_Bellflower, CA: 27129.672164469455
+citi_Belltown, CA: -207199.62178737976
+citi_Bermuda Dunes, CA: -229819.0539612342
+citi_Beverly Hills, CA: 613740.9654116592
+citi_Big Bear City, CA: -186149.5227097333
+citi_Big Bear Lake, CA: -256839.95146884077
+citi_Big Bear, CA: -78827.49417253552
+citi_Big River, CA: -222648.9703086376
+citi_Bloomington, CA: -143667.85077782333
+citi_Blue Jay, CA: -5863.699834279994
+citi_Blythe, CA: -378684.9249194943
+citi_Bonita, CA: 62481.20938164074
+citi_Bonsall, CA: -34117.59004469132
+citi_Boron, CA: -333651.12773350894
+citi_Borrego Springs, CA: -329613.5515151117
+citi_Boulevard, CA: -150914.41745322538
+citi_Brawley, CA: -171361.912094034
+citi_Brea, CA: 47832.55165176365
+citi_Buellton, CA: 114693.87157942433
+citi_Buena Park, CA: 51293.12946808748
+citi_Burbank, CA: 249776.2973194565
+citi_Cabazon, CA: -296973.5672434473
+citi_Calabasas, CA: 166396.92444146666
+citi_Calexico, CA: -392005.3912915362
+citi_Caliente, CA: -137585.98252671675
+citi_California City, CA: -407389.2088747947
+citi_Calimesa, CA: -294545.1712319887
+citi_Camarillo, CA: 45201.831303720144
+citi_Cambria, CA: 155104.23433351386
+citi_Campo, CA: -214716.38048052372
+citi_Canoga Park, CA: 80939.4541721461
+citi_Canyon Country, CA: -83903.33846954862
+citi_Canyon Lake, CA: -162108.33714303005
+citi_Cardiff by the Sea, CA: 596669.4963461373
+citi_Cardiff, CA: 609957.1686436486
+citi_Carlsbad, CA: 168030.99857285622
+citi_Carpinteria, CA: 116958.81675673227
+citi_Carson, CA: 3569.649249582705
+citi_Castaic, CA: -68779.81367997777
+citi_Cathedral City, CA: -197849.71868077852
+citi_Cayucos, CA: 304542.16315060254
+citi_Cedar Glen, CA: -248870.85460504703
+citi_Cedarpines Park, CA: -328294.0720244589
+citi_Cerritos, CA: 136484.0113652626
+citi_Chatsworth, CA: 28372.837446502046
+citi_Cherry Valley, CA: -242303.9939019333
+citi_Chino Hills, CA: 47893.42411606732
+citi_Chino, CA: -120353.15706676689
+citi_Chula Vista, CA: -63833.345084464316
+citi_Claremont, CA: 57845.1271191818
+citi_Coachella, CA: -306142.4382230147
+citi_Colton, CA: -223302.39075195964
+citi_Commerce, CA: -49468.402383163484
+citi_Compton, CA: -78183.37395674983
+citi_Corona, CA: -185783.45050340268
+citi_Coronado, CA: 679398.9102894554
+citi_Costa Mesa, CA: 225457.07005084338
+citi_Coto de Caza, CA: 151071.98726100553
+citi_Covina, CA: 23011.40402963096
+citi_Crestline, CA: -266427.57654769707
+citi_Creston, CA: 126380.80296134543
+citi_Culver City, CA: 450618.9797624914
+citi_Cypress, CA: 113534.12088002251
+citi_Dana Point, CA: 282707.8307372266
+citi_Del Mar, CA: 496301.57746338507
+citi_Delano, CA: -337600.4047634845
+citi_Descanso, CA: -100369.51085637542
+citi_Desert Hot Springs, CA: -308554.6122029104
+citi_Diamond Bar, CA: 74990.83333435841
+citi_Downey, CA: 33937.9279250079
+citi_Duarte, CA: 84443.7116384405
+citi_Dulzura, CA: 2.5165718398056924e-09
+citi_Eagle Rock, CA: 300674.19264668494
+citi_East Los Angeles, CA: -6663.179158859928
+citi_Echo Park, CA: 501129.14539489296
+citi_El Cajon, CA: -60463.40194499734
+citi_El Mirage, CA: 284843.79236126016
+citi_El Monte, CA: 42587.910385519666
+citi_El Segundo, CA: 905731.0372621022
+citi_Encinitas, CA: 314842.43306753045
+citi_Encino, CA: 266889.72193533607
+citi_Escondido, CA: -76079.57648760563
+citi_Fallbrook, CA: -68577.6289832281
+citi_Fawnskin, CA: -9278.241161371097
+citi_Fillmore, CA: -106049.72765608254
+citi_Fontana, CA: -202329.4401836428
+citi_Forest Falls, CA: -298899.2764374187
+citi_Fountain Valley, CA: 308865.3931377794
+citi_Frazier Park, CA: -322933.47873097134
+citi_Fullerton, CA: 90192.18847899594
+citi_Garden Grove, CA: 131934.6655567393
+citi_Gardena, CA: 69702.22599214465
+citi_Glendale, CA: 396824.7465848113
+citi_Glendora, CA: 77620.77438870253
+citi_Goleta, CA: 339776.9531494645
+citi_Gorman, CA: -116820.18833074644
+citi_Granada Hills, CA: 54707.36412404202
+citi_Grand Terrace, CA: -194106.30331888158
+citi_Green Valley Lake, CA: -255554.53171248993
+citi_Green Valley, CA: -191129.9265297604
+citi_Grover Beach, CA: 30562.03974467906
+citi_Guadalupe, CA: -389177.0580859433
+citi_Hacienda Heights, CA: 65808.88347898159
+citi_Harbor City, CA: 113647.11509373214
+citi_Hawaiian Gardens, CA: -91503.89190592559
+citi_Hawthorne, CA: 194182.62562655853
+citi_Helendale, CA: -333953.63729587634
+citi_Hemet, CA: -286770.02252709126
+citi_Hesperia, CA: -323290.6010680454
+citi_Highland Park, CA: 235860.88096140587
+citi_Highland, CA: -242554.5241465637
+citi_Hollywood, CA: 138857.3169395945
+citi_Homeland, CA: -232376.3467180416
+citi_Huntington Beach, CA: 289314.03627123235
+citi_Huntington Park, CA: -19077.734911814572
+citi_Idyllwild, CA: -43007.1386121556
+citi_Imperial Beach, CA: 51947.589375269956
+citi_Imperial, CA: -160050.7213794909
+citi_Indian Wells, CA: -21967.576622799446
+citi_Indio, CA: -233095.39452600185
+citi_Inglewood, CA: 129444.11209232347
+citi_Inyokern, CA: -181707.13145300667
+citi_Irvine, CA: 298720.924782905
+citi_Jacumba, CA: -101958.19794136238
+citi_Jamul, CA: -48468.90162124528
+citi_Joshua Tree, CA: -66155.61618686045
+citi_Julian, CA: -152879.2912948222
+citi_Juniper Hills, CA: -268152.379432187
+citi_Keene, CA: -123710.15231024516
+citi_Kernville, CA: 32342.754869379824
+citi_La Canada Flintridge, CA: 644001.1433749703
+citi_La Conchita, CA: 132477.89477893076
+citi_La Crescenta, CA: 194144.81654770867
+citi_La Habra Heights, CA: 158673.65536843456
+citi_La Habra, CA: 44882.847836068126
+citi_La Jolla, CA: 284416.94186626456
+citi_La Mesa, CA: 44084.5159952016
+citi_La Mirada, CA: 42073.97205125113
+citi_La Palma, CA: 133864.00692657114
+citi_La Puente, CA: 3665.5203288688353
+citi_La Quinta, CA: -33876.04285193381
+citi_La Verne, CA: 9227.927863203957
+citi_Ladera Ranch, CA: 142561.40484891727
+citi_Laguna Beach, CA: 408287.7919217447
+citi_Laguna Hills, CA: 116999.88559447875
+citi_Laguna Niguel, CA: 243552.65358614104
+citi_Laguna Woods, CA: -188547.85457410035
+citi_Lake Arrowhead, CA: -67134.40612398606
+citi_Lake Balboa, CA: 147700.94246905617
+citi_Lake Elizabeth, CA: -252121.09409847963
+citi_Lake Elsinore, CA: -218767.78121324308
+citi_Lake Forest, CA: 151305.07726593278
+citi_Lake Hughes, CA: -236190.11014261676
+citi_Lake Los Angeles, CA: -300829.29729592986
+citi_Lake Sherwood, CA: 581067.3334819323
+citi_Lakeside, CA: -82680.8733518015
+citi_Lakeview Terrace, CA: 164778.44926835704
+citi_Lakewood, CA: 81251.53905943711
+citi_Lancaster, CA: -313243.6668528317
+citi_Landers, CA: -322093.1924073544
+citi_Lawndale, CA: 100949.17399953635
+citi_Lebec, CA: -361727.08673798334
+citi_Lemon Grove, CA: -59049.13629654428
+citi_Leona Valley, CA: -141986.71213337732
+citi_Littlerock, CA: -252827.61189440463
+citi_Llano, CA: -399581.1048858512
+citi_Loma Linda, CA: -175541.3711233945
+citi_Lomita, CA: 180657.6103902073
+citi_Lompoc, CA: -79841.75152590079
+citi_Long Beach, CA: 113335.40095966845
+citi_Los Alamitos, CA: 365131.92969989387
+citi_Los Alamos, CA: 41375.73352391572
+citi_Los Angeles, CA: 141471.7981507264
+citi_Los Osos, CA: 49895.81893001027
+citi_Lucerne Valley, CA: -364748.3940748391
+citi_Lynwood, CA: -71226.56907553696
+citi_Malibu, CA: 294939.42035733385
+citi_Menifee, CA: -268462.31991933216
+citi_Mentone, CA: -147519.78802058322
+citi_Midway City, CA: 206155.583380515
+citi_Mira Loma, CA: -204243.5378520373
+citi_Mission Hills, CA: 38001.47551606942
+citi_Mission Viejo, CA: 104946.991631051
+citi_Modjeska Canyon, CA: 268148.4732073827
+citi_Mojave, CA: -276194.5242295647
+citi_Monrovia, CA: 223086.37397965213
+citi_Montclair, CA: -89514.20103019076
+citi_Montebello, CA: 37770.40254116821
+citi_Montecito, CA: 407800.51465823513
+citi_Monterey Park, CA: 152334.96525999415
+citi_Montrose, CA: 268428.66688577493
+citi_Moorpark, CA: -24678.559812899257
+citi_Moreno Valley, CA: -282246.6785760514
+citi_Morongo Valley, CA: -367174.706622602
+citi_Morro Bay, CA: 135641.98428921157
+citi_Mountain Center, CA: 62581.172459671536
+citi_Mt Baldy, CA: -153714.35452065387
+citi_Murrieta, CA: -213477.85185436433
+citi_National City, CA: -89540.53454383704
+citi_Needles, CA: 110389.83205586721
+citi_New Cuyama, CA: 552508.6932828027
+citi_Newberry Springs, CA: -236863.47863241893
+citi_Newbury Park, CA: 124157.13994139252
+citi_Newhall, CA: 77760.54358850804
+citi_Newport Beach, CA: 311381.4618259078
+citi_Nipomo, CA: 97432.94798517614
+citi_Norco, CA: -21637.218798501013
+citi_North Hills, CA: 46949.51538966729
+citi_North Hollywood, CA: 140245.0455542534
+citi_North Tustin, CA: 182918.19350076804
+citi_Northridge, CA: 44458.55848252481
+citi_Norwalk, CA: -14730.098049948581
+citi_Nuevo, CA: -261857.73013638624
+citi_Oak Glen, CA: 11935.160265816172
+citi_Oak Hills, CA: -300086.1665633459
+citi_Oak Park, CA: 256901.65746840654
+citi_Oak View, CA: 76071.77175692335
+citi_Ocean Beach, CA: 169312.4259590929
+citi_Oceano, CA: -45042.55849869066
+citi_Oceanside, CA: -61153.77834191278
+citi_Ojai, CA: 249018.43391301302
+citi_Ontario, CA: -131712.1771767685
+citi_Orange, CA: 124758.15170013845
+citi_Oro Grande, CA: -256699.8980960724
+citi_Oxnard, CA: 91217.68508162844
+citi_Pacific Beach, CA: 576406.3151065751
+citi_Pacific Palisades, CA: 395192.08313345705
+citi_Pacoima, CA: -32208.75253374441
+citi_Palm Desert, CA: -94238.36829208978
+citi_Palm Springs, CA: 84598.96002069605
+citi_Palmdale, CA: -297547.14200525614
+citi_Palomar Mountain, CA: -125029.98955253858
+citi_Panorama City, CA: -49638.46628712453
+citi_Paradise Hills, CA: -90261.50862946048
+citi_Paramount, CA: -12502.49124678902
+citi_Parkfield, CA: -2.6193447411060333e-10
+citi_Pasadena, CA: 328756.60378139943
+citi_Paso Robles, CA: -66373.0682364541
+citi_Pauma Valley, CA: -107575.11504004274
+citi_Pearblossom, CA: -368230.82612949837
+citi_Perris, CA: -259454.85723110475
+citi_Phelan, CA: -349042.09084943833
+citi_Phillips Ranch, CA: -146933.53383888263
+citi_Pico Rivera, CA: -12477.589548039952
+citi_Pine Mountain Club, CA: -332479.9717535056
+citi_Pine Valley, CA: -146273.6443149388
+citi_Pinon Hills, CA: -222092.57627027592
+citi_Pioneertown, CA: -69578.20030181343
+citi_Piru, CA: -152084.11784290033
+citi_Pismo Beach, CA: 267773.7286569776
+citi_Placentia, CA: 86427.53456249264
+citi_Pomona, CA: -95734.65037871656
+citi_Port Hueneme, CA: 33793.94536810648
+citi_Porter Ranch, CA: 119870.99143496383
+citi_Potrero, CA: -141618.69945064807
+citi_Poway, CA: 84770.76150153924
+citi_Quartz Hill, CA: -365348.8834101357
+citi_Ramona, CA: -136825.54479081943
+citi_Ranchita, CA: -302834.79261685687
+citi_Rancho Bernardo, CA: 26935.753050605323
+citi_Rancho Cucamonga, CA: -60681.77271913865
+citi_Rancho Mirage, CA: -80392.16885356142
+citi_Rancho Palos Verdes, CA: 433048.79374048684
+citi_Rancho Santa Margarita, CA: 105220.3398304937
+citi_Redlands, CA: -124149.29983863147
+citi_Redondo Beach, CA: 394525.5826295123
+citi_Reseda, CA: 47501.45569446923
+citi_Rialto, CA: -212114.60428397512
+citi_Rimforest, CA: -306152.9346454006
+citi_Riverside, CA: -185377.69655671716
+citi_Romoland, CA: -372112.43276436033
+citi_Rosamond, CA: -341389.0460550171
+citi_Rosemead, CA: 140242.48048745535
+citi_Rossmoor, CA: 410471.28021073714
+citi_Rowland Heights, CA: 104838.47867647797
+citi_Running Springs, CA: -271202.1836924058
+citi_Salton City, CA: 1.4551915228366852e-11
+citi_San Bernardino, CA: -227453.86108564268
+citi_San Clemente, CA: 189571.47999027374
+citi_San Diego, CA: 125327.23323307124
+citi_San Dimas, CA: 39355.215468300645
+citi_San Fernando, CA: -4941.496056386002
+citi_San Gabriel, CA: 194471.21575016624
+citi_San Jacinto, CA: -335500.48480641266
+citi_San Juan Capistrano, CA: 115242.59843538057
+citi_San Luis Obispo, CA: 179656.1056315878
+citi_San Marcos, CA: -75500.89950312299
+citi_San Marino, CA: 608543.9216722046
+citi_San Miguel, CA: -29957.98007770323
+citi_San Pedro, CA: 132225.07149379104
+citi_Santa Ana, CA: 79162.8892509866
+citi_Santa Barbara, CA: 470832.90343616705
+citi_Santa Clarita, CA: -239745.90476198867
+citi_Santa Fe Springs, CA: -36313.84597018068
+citi_Santa Margarita, CA: -122699.20171375942
+citi_Santa Maria, CA: -142214.96822536038
+citi_Santa Monica, CA: 936742.8061036804
+citi_Santa Paula, CA: -48586.8279534608
+citi_Santa Ynez, CA: 218459.69514516744
+citi_Santa Ysabel, CA: -176904.2305616167
+citi_Santee, CA: -30021.53487260671
+citi_Saugus, CA: -81229.10321291648
+citi_Seal Beach, CA: -154848.75027265452
+citi_Shadow Hills, CA: 132875.2677743993
+citi_Shandon, CA: -187332.72370302645
+citi_Sherman Oaks, CA: 521721.8914438823
+citi_Sierra Madre, CA: 442840.46137331054
+citi_Silverado, CA: -71607.52855298328
+citi_Simi Valley, CA: 21977.911925766384
+citi_Solana Beach, CA: 566772.1951481041
+citi_Somis, CA: 249626.66297726237
+citi_South El Monte, CA: 15467.212369070181
+citi_South Gate, CA: -76405.90890020144
+citi_South Pasadena, CA: -249694.98836100564
+citi_Spring Valley, CA: -55573.84637385665
+citi_Stallion Springs, CA: -366228.7368862332
+citi_Stanton, CA: 29786.69463601167
+citi_Stevenson Ranch, CA: 15284.271017260216
+citi_Studio City, CA: 629409.7632395197
+citi_Sugarloaf, CA: -269374.0282530872
+citi_Sun City, CA: -309339.0858670963
+citi_Sun Valley, CA: 80151.14238561469
+citi_Sunland, CA: 182648.01234645236
+citi_Sylmar, CA: -61094.67034218868
+citi_Tarzana, CA: 278042.49249829026
+citi_Tehachapi, CA: -376240.3424827749
+citi_Temecula, CA: -166513.29837233483
+citi_Temple City, CA: 153637.73544008695
+citi_Templeton, CA: 34793.59198650772
+citi_Thermal, CA: 74734.83312698477
+citi_Thousand Oaks, CA: 172017.05707283766
+citi_Thousand Palms, CA: -340342.3224254591
+citi_Topanga, CA: 241545.19776031017
+citi_Torrance, CA: 212080.1505492482
+citi_Trabuco Canyon, CA: 122096.49104934592
+citi_Tujunga, CA: 97344.24868979205
+citi_Tustin, CA: 121057.69393839774
+citi_Twin Peaks, CA: -177120.7224580599
+citi_Upland, CA: -45380.992359879325
+citi_Val Verde, CA: -114207.38335542749
+citi_Valencia, CA: -41604.18999927766
+citi_Valley Center, CA: -73693.39923630781
+citi_Valley Glen, CA: 214503.67815564678
+citi_Valley Village, CA: 346219.08362743235
+citi_Van Nuys, CA: 150958.39432839185
+citi_Vandenberg Village, CA: -92759.08946368343
+citi_Ventura, CA: 147613.20302009262
+citi_Victorville, CA: -376814.9611947685
+citi_View Park, CA: 240728.3711328865
+citi_Villa Park, CA: 469988.141940256
+citi_Vista, CA: -28857.50765597762
+citi_Walnut, CA: 161225.68900671063
+citi_Warner Springs, CA: -307263.5450770928
+citi_West Covina, CA: 2098.312421191522
+citi_West Hills, CA: 118600.39702264863
+citi_Westlake Village, CA: 324542.08457731723
+citi_Westminster, CA: 142379.3485515407
+citi_Whitewater, CA: -312100.9791998408
+citi_Whittier, CA: 32004.312616168834
+citi_Wildomar, CA: -259171.35249407747
+citi_Wilmington, CA: -12581.898286950249
+citi_Winchester, CA: -251781.47047887047
+citi_Winnetka, CA: 68578.1833588396
+citi_Wofford Heights, CA: 1.434003934264183e-06
+citi_Woodland Hills, CA: 272514.54330345354
+citi_Wrightwood, CA: -137006.48802755226
+citi_Yorba Linda, CA: 165299.67729154584
+citi_Yucaipa, CA: -216935.04747825256
+citi_Yucca Valley, CA: -312768.16409798857
