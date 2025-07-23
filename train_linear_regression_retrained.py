@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
+import joblib
 
 # Load the data
 # Use the same file as before
@@ -61,4 +62,7 @@ print(f'R^2 score (train): {r2_train:.3f}')
 print('Intercept:', model.intercept_)
 print('Coefficients:')
 for name, coef in zip(X.columns, model.coef_):
-    print(f'{name}: {coef}') 
+    print(f'{name}: {coef}')
+
+# Save the trained model for backend use
+joblib.dump(model, 'linear_regression_model_retrained.joblib') 

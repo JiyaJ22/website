@@ -252,7 +252,7 @@ const ImageClassifier = () => {
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">📊 Data-Driven Price Prediction (Regression Model)</h3>
                 <div className="space-y-3 text-gray-700">
                   <p>
-                    <strong>Model Type:</strong> In addition to image classification, our predictor uses a <strong>statistical regression model</strong> trained on thousands of real Southern California home sales. This model analyzes key property features—square footage, number of bedrooms, number of bathrooms, and location (city)—to estimate a realistic price for any given house.
+                    The property details and combined prediction sections now use a retrained linear regression model. This model was trained on the same dataset but with outliers removed, and uses one-hot encoding for city, as well as bedrooms, bathrooms, and square footage. This approach provides more accurate and robust price predictions.
                   </p>
                   <p>
                     <strong>Feature Importance:</strong> Statistical analysis of the dataset revealed that <strong>square footage</strong> is the strongest predictor of price (correlation 0.58), followed by <strong>location</strong> (city), and then the number of bedrooms and bathrooms. The model assigns weights to each feature based on their impact on price, learned from historical data.
