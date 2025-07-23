@@ -1,6 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { BarChart3, PieChart, TrendingUp, Info, Database } from "lucide-react";
 import axios from "axios";
+import { Bar } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+} from 'chart.js';
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -221,87 +233,78 @@ const DataVisualizations = () => {
         </div>
 
         {/* Bedrooms Distribution */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-          <div className="bg-white rounded-xl shadow-sm p-6">
-            <div className="flex items-center space-x-2 mb-6">
-              <PieChart size={24} className="text-green-600" />
-              <h2 className="text-2xl font-bold text-gray-900">Bedrooms Distribution</h2>
-            </div>
-            
-            <div className="mb-4">
-              <img 
-                src="/bedroom pie chart.png" 
-                alt="Bedrooms Distribution Pie Chart"
-                className="w-full max-w-md mx-auto rounded-lg shadow-sm"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'block';
-                }}
-              />
-              <div className="text-center text-gray-500 mt-4" style={{display: 'none'}}>
-                Bedrooms Distribution Pie Chart
-              </div>
-            </div>
-            
-            <div className="space-y-2">
-              {Object.entries(stats?.bed_distribution || {}).map(([beds, count]) => (
-                <div key={beds} className="flex justify-between items-center p-2 bg-gray-50 rounded">
-                  <span className="font-medium">{beds} bedroom{beds !== '1' ? 's' : ''}</span>
-                  <div className="text-right">
-                    <span className="text-sm text-gray-600">{formatNumber(count)}</span>
-                    <span className="text-xs text-gray-500 ml-2">
-                      ({getPercentage(count, stats?.total_houses || 1)}%)
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
+        <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
+          <div className="flex items-center space-x-2 mb-6">
+            <BarChart3 size={24} className="text-green-600" />
+            <h2 className="text-2xl font-bold text-gray-900">Bedrooms Distribution</h2>
           </div>
+          <div className="mb-6">
+            <Bar
+              data={{
+                labels: Object.keys(stats?.bed_distribution || {}).sort((a, b) => (stats.bed_distribution[b] - stats.bed_distribution[a])),
+                datasets: [
+                  {
+                    label: 'Number of Houses',
+                    data: Object.keys(stats?.bed_distribution || {}).sort((a, b) => (stats.bed_distribution[b] - stats.bed_distribution[a])).map(k => stats.bed_distribution[k]),
+                    backgroundColor: 'rgba(34,197,94,0.7)',
+                  },
+                ],
+              }}
+              options={{
+                indexAxis: 'y',
+                plugins: {
+                  legend: { display: false },
+                  title: { display: false },
+                  tooltip: { enabled: true },
+                },
+                scales: {
+                  x: { beginAtZero: true, title: { display: true, text: 'Number of Houses' } },
+                  y: { title: { display: true, text: 'Bedrooms' } },
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                height: 300,
+              }}
+              height={300}
+            />
+          </div>
+        </div>
 
-          <div className="bg-white rounded-xl shadow-sm p-6">
-            <div className="flex items-center space-x-2 mb-6">
-              <PieChart size={24} className="text-blue-600" />
-              <h2 className="text-2xl font-bold text-gray-900">Bathrooms Distribution</h2>
-            </div>
-            
-            <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg">
-              <div className="flex items-start space-x-2">
-                <Info size={16} className="text-blue-600 mt-0.5" />
-                <div className="text-sm text-blue-800">
-                  <p className="font-medium mb-1">Understanding Bathroom Numbers</p>
-                  <p>For all the numbers shown here, the first number refers to full bathrooms, and the second refers to half bathrooms. So if a value is 5.2, it means 5 full baths and 2 half baths.</p>
-                </div>
-              </div>
-            </div>
-            
-            <div className="mb-4">
-              <img 
-                src="/bthrm pie chart.png" 
-                alt="Bathrooms Distribution Pie Chart"
-                className="w-full max-w-md mx-auto rounded-lg shadow-sm"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                  e.target.nextSibling.style.display = 'block';
-                }}
-              />
-              <div className="text-center text-gray-500 mt-4" style={{display: 'none'}}>
-                Bathrooms Distribution Pie Chart
-              </div>
-            </div>
-            
-            <div className="space-y-2">
-              {Object.entries(stats?.bath_distribution || {}).map(([baths, count]) => (
-                <div key={baths} className="flex justify-between items-center p-2 bg-gray-50 rounded">
-                  <span className="font-medium">{baths} bathroom{baths !== '1' ? 's' : ''}</span>
-                  <div className="text-right">
-                    <span className="text-sm text-gray-600">{formatNumber(count)}</span>
-                    <span className="text-xs text-gray-500 ml-2">
-                      ({getPercentage(count, stats?.total_houses || 1)}%)
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
+        {/* Bathrooms Distribution */}
+        <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
+          <div className="flex items-center space-x-2 mb-6">
+            <BarChart3 size={24} className="text-blue-600" />
+            <h2 className="text-2xl font-bold text-gray-900">Bathrooms Distribution</h2>
+          </div>
+          <div className="mb-6">
+            <Bar
+              data={{
+                labels: Object.keys(stats?.bath_distribution || {}).sort((a, b) => (stats.bath_distribution[b] - stats.bath_distribution[a])),
+                datasets: [
+                  {
+                    label: 'Number of Houses',
+                    data: Object.keys(stats?.bath_distribution || {}).sort((a, b) => (stats.bath_distribution[b] - stats.bath_distribution[a])).map(k => stats.bath_distribution[k]),
+                    backgroundColor: 'rgba(59,130,246,0.7)',
+                  },
+                ],
+              }}
+              options={{
+                indexAxis: 'y',
+                plugins: {
+                  legend: { display: false },
+                  title: { display: false },
+                  tooltip: { enabled: true },
+                },
+                scales: {
+                  x: { beginAtZero: true, title: { display: true, text: 'Number of Houses' } },
+                  y: { title: { display: true, text: 'Bathrooms' } },
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                height: 300,
+              }}
+              height={300}
+            />
           </div>
         </div>
 
