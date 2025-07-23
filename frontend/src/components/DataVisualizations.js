@@ -233,78 +233,128 @@ const DataVisualizations = () => {
         </div>
 
         {/* Bedrooms Distribution */}
-        <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
-          <div className="flex items-center space-x-2 mb-6">
-            <BarChart3 size={24} className="text-green-600" />
-            <h2 className="text-2xl font-bold text-gray-900">Bedrooms Distribution</h2>
-          </div>
-          <div className="mb-6">
-            <Bar
-              data={{
-                labels: Object.keys(stats?.bed_distribution || {}).sort((a, b) => (stats.bed_distribution[b] - stats.bed_distribution[a])),
-                datasets: [
-                  {
-                    label: 'Number of Houses',
-                    data: Object.keys(stats?.bed_distribution || {}).sort((a, b) => (stats.bed_distribution[b] - stats.bed_distribution[a])).map(k => stats.bed_distribution[k]),
-                    backgroundColor: 'rgba(34,197,94,0.7)',
+        <div className="bg-white rounded-xl shadow-sm p-6 mb-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="md:col-span-2">
+            <div className="flex items-center space-x-2 mb-6">
+              <BarChart3 size={24} className="text-green-600" />
+              <h2 className="text-2xl font-bold text-gray-900">Bedrooms Distribution</h2>
+            </div>
+            <div className="mb-6">
+              <Bar
+                data={{
+                  labels: Object.keys(stats?.bed_distribution || {}).sort((a, b) => (stats.bed_distribution[b] - stats.bed_distribution[a])),
+                  datasets: [
+                    {
+                      label: 'Number of Houses',
+                      data: Object.keys(stats?.bed_distribution || {}).sort((a, b) => (stats.bed_distribution[b] - stats.bed_distribution[a])).map(k => stats.bed_distribution[k]),
+                      backgroundColor: 'rgba(34,197,94,0.7)',
+                    },
+                  ],
+                }}
+                options={{
+                  indexAxis: 'y',
+                  plugins: {
+                    legend: { display: false },
+                    title: { display: false },
+                    tooltip: { enabled: true },
                   },
-                ],
-              }}
-              options={{
-                indexAxis: 'y',
-                plugins: {
-                  legend: { display: false },
-                  title: { display: false },
-                  tooltip: { enabled: true },
-                },
-                scales: {
-                  x: { beginAtZero: true, title: { display: true, text: 'Number of Houses' } },
-                  y: { title: { display: true, text: 'Bedrooms' } },
-                },
-                responsive: true,
-                maintainAspectRatio: false,
-                height: 300,
-              }}
-              height={300}
-            />
+                  scales: {
+                    x: { beginAtZero: true, title: { display: true, text: 'Number of Houses' } },
+                    y: { title: { display: true, text: 'Bedrooms' } },
+                  },
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  height: 300,
+                }}
+                height={300}
+              />
+            </div>
+          </div>
+          {/* Legend/Table for Bedrooms */}
+          <div className="overflow-auto">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Legend</h3>
+            <table className="min-w-max text-sm">
+              <thead>
+                <tr>
+                  <th className="text-left pr-4">Bedrooms</th>
+                  <th className="text-right"># Houses</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.entries(stats?.bed_distribution || {}).sort((a, b) => b[1] - a[1]).map(([beds, count]) => (
+                  <tr key={beds}>
+                    <td className="pr-4">{beds}</td>
+                    <td className="text-right">{formatNumber(count)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
 
         {/* Bathrooms Distribution */}
-        <div className="bg-white rounded-xl shadow-sm p-6 mb-8">
-          <div className="flex items-center space-x-2 mb-6">
-            <BarChart3 size={24} className="text-blue-600" />
-            <h2 className="text-2xl font-bold text-gray-900">Bathrooms Distribution</h2>
-          </div>
-          <div className="mb-6">
-            <Bar
-              data={{
-                labels: Object.keys(stats?.bath_distribution || {}).sort((a, b) => (stats.bath_distribution[b] - stats.bath_distribution[a])),
-                datasets: [
-                  {
-                    label: 'Number of Houses',
-                    data: Object.keys(stats?.bath_distribution || {}).sort((a, b) => (stats.bath_distribution[b] - stats.bath_distribution[a])).map(k => stats.bath_distribution[k]),
-                    backgroundColor: 'rgba(59,130,246,0.7)',
+        <div className="bg-white rounded-xl shadow-sm p-6 mb-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="md:col-span-2">
+            <div className="flex items-center space-x-2 mb-6">
+              <BarChart3 size={24} className="text-blue-600" />
+              <h2 className="text-2xl font-bold text-gray-900">Bathrooms Distribution</h2>
+            </div>
+            <div className="mb-6">
+              <Bar
+                data={{
+                  labels: Object.keys(stats?.bath_distribution || {}).sort((a, b) => (stats.bath_distribution[b] - stats.bath_distribution[a])),
+                  datasets: [
+                    {
+                      label: 'Number of Houses',
+                      data: Object.keys(stats?.bath_distribution || {}).sort((a, b) => (stats.bath_distribution[b] - stats.bath_distribution[a])).map(k => stats.bath_distribution[k]),
+                      backgroundColor: 'rgba(59,130,246,0.7)',
+                    },
+                  ],
+                }}
+                options={{
+                  indexAxis: 'y',
+                  plugins: {
+                    legend: { display: false },
+                    title: { display: false },
+                    tooltip: { enabled: true },
                   },
-                ],
-              }}
-              options={{
-                indexAxis: 'y',
-                plugins: {
-                  legend: { display: false },
-                  title: { display: false },
-                  tooltip: { enabled: true },
-                },
-                scales: {
-                  x: { beginAtZero: true, title: { display: true, text: 'Number of Houses' } },
-                  y: { title: { display: true, text: 'Bathrooms' } },
-                },
-                responsive: true,
-                maintainAspectRatio: false,
-                height: 300,
-              }}
-              height={300}
-            />
+                  scales: {
+                    x: { beginAtZero: true, title: { display: true, text: 'Number of Houses' } },
+                    y: { title: { display: true, text: 'Bathrooms' } },
+                  },
+                  responsive: true,
+                  maintainAspectRatio: false,
+                  height: 300,
+                }}
+                height={300}
+              />
+            </div>
+            {/* Explanatory note for bathrooms */}
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
+              <p className="text-sm text-blue-800">
+                <strong>Note:</strong> Bathroom numbers are shown as <code>full.half</code>. For example, <code>5.2</code> means 5 full baths and 2 half baths.
+              </p>
+            </div>
+          </div>
+          {/* Legend/Table for Bathrooms */}
+          <div className="overflow-auto">
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Legend</h3>
+            <table className="min-w-max text-sm">
+              <thead>
+                <tr>
+                  <th className="text-left pr-4">Bathrooms</th>
+                  <th className="text-right"># Houses</th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.entries(stats?.bath_distribution || {}).sort((a, b) => b[1] - a[1]).map(([baths, count]) => (
+                  <tr key={baths}>
+                    <td className="pr-4">{baths}</td>
+                    <td className="text-right">{formatNumber(count)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
 
