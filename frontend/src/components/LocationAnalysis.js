@@ -180,7 +180,7 @@ const LocationAnalysis = () => {
           
           <div className="mb-6">
             <img 
-              src="/top 150 cities by house price" 
+              src="/top 150 cities by house price.png" 
               alt="Top 150 Cities by House Price"
               className="w-full max-w-5xl mx-auto rounded-lg shadow-sm"
               onError={(e) => {
@@ -235,7 +235,7 @@ const LocationAnalysis = () => {
           
           <div className="mb-6">
             <img 
-              src="/bottom 150 cities by house price" 
+              src="/bottom 150 cities by house price.png" 
               alt="Bottom 150 Cities by House Price"
               className="w-full max-w-5xl mx-auto rounded-lg shadow-sm"
               onError={(e) => {
