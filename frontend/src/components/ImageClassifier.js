@@ -212,17 +212,120 @@ const ImageClassifier = () => {
           </p>
         </div>
 
-        {/* Model Loading Status */}
-        {modelLoading && (
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+        {/* In-Depth AI Model Explanation - Collapsible (moved up) */}
+        <div className="mt-8 bg-white rounded-xl shadow-sm">
+          <div 
+            className="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors"
+            onClick={() => setIsAIExplanationOpen(!isAIExplanationOpen)}
+          >
             <div className="flex items-center space-x-2">
-              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-600"></div>
-              <span className="text-blue-600">Loading ML model...</span>
+              <Brain size={24} className="text-purple-600" />
+              <h2 className="text-2xl font-bold text-gray-900">In-Depth: How Our AI House Price Predictor Works</h2>
             </div>
+            {isAIExplanationOpen ? (
+              <ChevronUp size={24} className="text-gray-400" />
+            ) : (
+              <ChevronDown size={24} className="text-gray-400" />
+            )}
           </div>
-        )}
+          {isAIExplanationOpen && (
+            <div className="px-6 pb-6 space-y-8">
+              {/* Machine Learning Model Section */}
+              <div className="border-l-4 border-purple-500 pl-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">🧠 Machine Learning Model Architecture (Image Classifier)</h3>
+                <div className="space-y-3 text-gray-700">
+                  <p>
+                    <strong>Model Type:</strong> Our image classifier uses a <strong>Convolutional Neural Network (CNN)</strong> 
+                    implemented through Google's Teachable Machine platform. CNNs are specifically designed for image recognition 
+                    tasks, using layers of convolution and pooling operations to detect visual patterns and features.
+                  </p>
+                  <p>
+                    <strong>Architecture:</strong> The model employs transfer learning, built on a pre-trained MobileNet backbone 
+                    that has been fine-tuned on our specific house image dataset. This approach leverages existing knowledge 
+                    from millions of images while adapting to our house price prediction task.
+                  </p>
+                </div>
+              </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Data-Driven Price Prediction Section */}
+              <div className="border-l-4 border-green-600 pl-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">📊 Data-Driven Price Prediction (Regression Model)</h3>
+                <div className="space-y-3 text-gray-700">
+                  <p>
+                    <strong>Model Type:</strong> In addition to image classification, our predictor uses a <strong>statistical regression model</strong> trained on thousands of real Southern California home sales. This model analyzes key property features—square footage, number of bedrooms, number of bathrooms, and location (city)—to estimate a realistic price for any given house.
+                  </p>
+                  <p>
+                    <strong>Feature Importance:</strong> Statistical analysis of the dataset revealed that <strong>square footage</strong> is the strongest predictor of price (correlation 0.58), followed by <strong>location</strong> (city), and then the number of bedrooms and bathrooms. The model assigns weights to each feature based on their impact on price, learned from historical data.
+                  </p>
+                  <p>
+                    <strong>How It Works:</strong> When you enter property details (sqft, beds, baths, city), the model applies a mathematical formula (regression equation) to calculate the predicted price. This formula was derived from the dataset and is designed to generalize well to new, unseen properties.
+                  </p>
+                  <p>
+                    <strong>Combined Prediction:</strong> If you provide both an image and property details, the app shows both the AI-powered image classification and the data-driven price estimate, giving you a more comprehensive prediction.
+                  </p>
+                </div>
+              </div>
+
+              {/* Data Preprocessing Section */}
+              <div className="border-l-4 border-green-500 pl-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">⚙️ Data Preprocessing Pipeline</h3>
+                <div className="space-y-3 text-gray-700">
+                  <p>
+                    <strong>Image Processing:</strong> All uploaded images undergo standardized preprocessing:
+                  </p>
+                  <ul className="list-disc pl-6 space-y-1">
+                    <li><strong>Resizing:</strong> Images are automatically resized to 224×224 pixels for consistency</li>
+                    <li><strong>Color Normalization:</strong> RGB values are normalized to a 0-1 scale for optimal neural network performance</li>
+                    <li><strong>Format Conversion:</strong> All images are converted to RGB format, regardless of original format</li>
+                    <li><strong>Tensor Transformation:</strong> Images are converted to numerical tensors that the model can process</li>
+                  </ul>
+                  <p>
+                    <strong>Training Data:</strong> The model was trained on 105 carefully selected house images from our dataset, 
+                    representing diverse architectural styles, conditions, and price ranges across Southern California.
+                  </p>
+                </div>
+              </div>
+
+              {/* Model Evaluation Section */}
+              <div className="border-l-4 border-blue-500 pl-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">📈 Model Evaluation & Performance</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-3 text-gray-700">
+                    <p>
+                      <strong>Training Methodology:</strong> The model uses supervised learning with labeled examples, 
+                      where each house image is tagged with its corresponding price category (Low, Mid, High).
+                    </p>
+                    <p>
+                      <strong>Validation Approach:</strong> Google Teachable Machine automatically splits the data 
+                      for training and validation, helping prevent overfitting and ensuring the model generalizes well to new images.
+                    </p>
+                  </div>
+                  <div className="space-y-3 text-gray-700">
+                    <p>
+                      <strong>Performance Metrics:</strong> The model outputs confidence scores for each prediction, 
+                      indicating how certain it is about the classification. Higher confidence scores suggest more reliable predictions.
+                    </p>
+                    <p>
+                      <strong>Price Categories:</strong> Properties are classified into three distinct price ranges 
+                      based on statistical analysis of the dataset, providing clear market segments for decision-making.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Technical Note */}
+              <div className="p-4 bg-gray-50 rounded-lg">
+                <h4 className="font-semibold text-gray-900 mb-2">🔬 Technical Implementation Note</h4>
+                <p className="text-sm text-gray-700">
+                  This implementation demonstrates the practical application of computer vision and statistical modeling in real estate valuation. 
+                  By combining traditional regression analysis with modern neural network architectures, the app provides actionable insights for property price estimation—whether you have a photo, property details, or both.
+                </p>
+              </div>
+            </div>
+          )}
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
           {/* Image Upload Section */}
           <div className="bg-white rounded-xl shadow-sm p-6">
             <div className="flex items-center space-x-2 mb-4">
@@ -280,6 +383,17 @@ const ImageClassifier = () => {
                   </>
                 )}
               </button>
+            </div>
+            {/* Add link to Teachable Machine model below the classify image button */}
+            <div className="mt-6 text-center">
+              <a
+                href="https://teachablemachine.withgoogle.com/models/rCIluFF-N/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-blue-600 hover:underline text-sm"
+              >
+                View Original Teachable Machine Model
+              </a>
             </div>
           </div>
 
@@ -467,120 +581,6 @@ const ImageClassifier = () => {
               <p>Leverages statistical insights with square footage as the strongest predictor (0.58 correlation).</p>
             </div>
           </div>
-        </div>
-
-        {/* In-Depth AI Model Explanation - Collapsible */}
-        <div className="mt-8 bg-white rounded-xl shadow-sm">
-          <div 
-            className="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors"
-            onClick={() => setIsAIExplanationOpen(!isAIExplanationOpen)}
-          >
-            <div className="flex items-center space-x-2">
-              <Brain size={24} className="text-purple-600" />
-              <h2 className="text-2xl font-bold text-gray-900">In-Depth: How Our AI House Price Predictor Works</h2>
-            </div>
-            {isAIExplanationOpen ? (
-              <ChevronUp size={24} className="text-gray-400" />
-            ) : (
-              <ChevronDown size={24} className="text-gray-400" />
-            )}
-          </div>
-          
-          {isAIExplanationOpen && (
-            <div className="px-6 pb-6 space-y-8">
-              {/* Machine Learning Model Section */}
-              <div className="border-l-4 border-purple-500 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">🧠 Machine Learning Model Architecture (Image Classifier)</h3>
-                <div className="space-y-3 text-gray-700">
-                  <p>
-                    <strong>Model Type:</strong> Our image classifier uses a <strong>Convolutional Neural Network (CNN)</strong> 
-                    implemented through Google's Teachable Machine platform. CNNs are specifically designed for image recognition 
-                    tasks, using layers of convolution and pooling operations to detect visual patterns and features.
-                  </p>
-                  <p>
-                    <strong>Architecture:</strong> The model employs transfer learning, built on a pre-trained MobileNet backbone 
-                    that has been fine-tuned on our specific house image dataset. This approach leverages existing knowledge 
-                    from millions of images while adapting to our house price prediction task.
-                  </p>
-                </div>
-              </div>
-
-              {/* Data-Driven Price Prediction Section */}
-              <div className="border-l-4 border-green-600 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">📊 Data-Driven Price Prediction (Regression Model)</h3>
-                <div className="space-y-3 text-gray-700">
-                  <p>
-                    <strong>Model Type:</strong> In addition to image classification, our predictor uses a <strong>statistical regression model</strong> trained on thousands of real Southern California home sales. This model analyzes key property features—square footage, number of bedrooms, number of bathrooms, and location (city)—to estimate a realistic price for any given house.
-                  </p>
-                  <p>
-                    <strong>Feature Importance:</strong> Statistical analysis of the dataset revealed that <strong>square footage</strong> is the strongest predictor of price (correlation 0.58), followed by <strong>location</strong> (city), and then the number of bedrooms and bathrooms. The model assigns weights to each feature based on their impact on price, learned from historical data.
-                  </p>
-                  <p>
-                    <strong>How It Works:</strong> When you enter property details (sqft, beds, baths, city), the model applies a mathematical formula (regression equation) to calculate the predicted price. This formula was derived from the dataset and is designed to generalize well to new, unseen properties.
-                  </p>
-                  <p>
-                    <strong>Combined Prediction:</strong> If you provide both an image and property details, the app shows both the AI-powered image classification and the data-driven price estimate, giving you a more comprehensive prediction.
-                  </p>
-                </div>
-              </div>
-
-              {/* Data Preprocessing Section */}
-              <div className="border-l-4 border-green-500 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">⚙️ Data Preprocessing Pipeline</h3>
-                <div className="space-y-3 text-gray-700">
-                  <p>
-                    <strong>Image Processing:</strong> All uploaded images undergo standardized preprocessing:
-                  </p>
-                  <ul className="list-disc pl-6 space-y-1">
-                    <li><strong>Resizing:</strong> Images are automatically resized to 224×224 pixels for consistency</li>
-                    <li><strong>Color Normalization:</strong> RGB values are normalized to a 0-1 scale for optimal neural network performance</li>
-                    <li><strong>Format Conversion:</strong> All images are converted to RGB format, regardless of original format</li>
-                    <li><strong>Tensor Transformation:</strong> Images are converted to numerical tensors that the model can process</li>
-                  </ul>
-                  <p>
-                    <strong>Training Data:</strong> The model was trained on 105 carefully selected house images from our dataset, 
-                    representing diverse architectural styles, conditions, and price ranges across Southern California.
-                  </p>
-                </div>
-              </div>
-
-              {/* Model Evaluation Section */}
-              <div className="border-l-4 border-blue-500 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">📈 Model Evaluation & Performance</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-3 text-gray-700">
-                    <p>
-                      <strong>Training Methodology:</strong> The model uses supervised learning with labeled examples, 
-                      where each house image is tagged with its corresponding price category (Low, Mid, High).
-                    </p>
-                    <p>
-                      <strong>Validation Approach:</strong> Google Teachable Machine automatically splits the data 
-                      for training and validation, helping prevent overfitting and ensuring the model generalizes well to new images.
-                    </p>
-                  </div>
-                  <div className="space-y-3 text-gray-700">
-                    <p>
-                      <strong>Performance Metrics:</strong> The model outputs confidence scores for each prediction, 
-                      indicating how certain it is about the classification. Higher confidence scores suggest more reliable predictions.
-                    </p>
-                    <p>
-                      <strong>Price Categories:</strong> Properties are classified into three distinct price ranges 
-                      based on statistical analysis of the dataset, providing clear market segments for decision-making.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Technical Note */}
-              <div className="p-4 bg-gray-50 rounded-lg">
-                <h4 className="font-semibold text-gray-900 mb-2">🔬 Technical Implementation Note</h4>
-                <p className="text-sm text-gray-700">
-                  This implementation demonstrates the practical application of computer vision and statistical modeling in real estate valuation. 
-                  By combining traditional regression analysis with modern neural network architectures, the app provides actionable insights for property price estimation—whether you have a photo, property details, or both.
-                </p>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </div>
