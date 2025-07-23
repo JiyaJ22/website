@@ -29,6 +29,8 @@ if 'street' in df.columns:
     df = df.drop(columns=['street'])
 if 'image_id' in df.columns:
     df = df.drop(columns=['image_id'])
+if 'n_citi' in df.columns:
+    df = df.drop(columns=['n_citi'])
 
 # One-hot encode the city column (as before)
 df = pd.get_dummies(df, columns=['citi'])
@@ -45,9 +47,15 @@ model = LinearRegression()
 model.fit(X_train, y_train)
 
 # Evaluate the model
+# R^2 on test set
 y_pred = model.predict(X_test)
-r2 = r2_score(y_test, y_pred)
-print(f'R^2 score: {r2:.3f}')
+r2_test = r2_score(y_test, y_pred)
+print(f'R^2 score (test): {r2_test:.3f}')
+
+# R^2 on training set
+y_train_pred = model.predict(X_train)
+r2_train = r2_score(y_train, y_train_pred)
+print(f'R^2 score (train): {r2_train:.3f}')
 
 # Print intercept and coefficients
 print('Intercept:', model.intercept_)
