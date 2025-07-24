@@ -243,7 +243,9 @@ const DataVisualizations = () => {
               {(() => {
                 const threshold = 100;
                 const allEntries = Object.entries(stats?.bed_distribution || {});
-                const common = allEntries.filter(([_, count]) => count > threshold).sort((a, b) => b[1] - a[1]);
+                // Sort numerically by bedroom count
+                const common = allEntries.filter(([_, count]) => count > threshold)
+                  .sort((a, b) => Number(a[0]) - Number(b[0]));
                 return (
                   <Bar
                     data={{
@@ -290,7 +292,7 @@ const DataVisualizations = () => {
               <tbody>
                 {Object.entries(stats?.bed_distribution || {})
                   .filter(([_, count]) => count <= 100)
-                  .sort((a, b) => b[1] - a[1])
+                  .sort((a, b) => Number(a[0]) - Number(b[0]))
                   .map(([beds, count]) => (
                     <tr key={beds}>
                       <td className="pr-4">{beds}</td>
@@ -313,7 +315,9 @@ const DataVisualizations = () => {
               {(() => {
                 const threshold = 100;
                 const allEntries = Object.entries(stats?.bath_distribution || {});
-                const common = allEntries.filter(([_, count]) => count > threshold).sort((a, b) => b[1] - a[1]);
+                // Sort numerically by bathroom count
+                const common = allEntries.filter(([_, count]) => count > threshold)
+                  .sort((a, b) => Number(a[0]) - Number(b[0]));
                 return (
                   <Bar
                     data={{
@@ -366,7 +370,7 @@ const DataVisualizations = () => {
               <tbody>
                 {Object.entries(stats?.bath_distribution || {})
                   .filter(([_, count]) => count <= 100)
-                  .sort((a, b) => b[1] - a[1])
+                  .sort((a, b) => Number(a[0]) - Number(b[0]))
                   .map(([baths, count]) => (
                     <tr key={baths}>
                       <td className="pr-4">{baths}</td>

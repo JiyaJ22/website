@@ -209,10 +209,10 @@ const LocationAnalysis = () => {
                   <tr key={city.city} className="border-b border-gray-100 hover:bg-gray-50">
                     <td className="py-3 px-4">
                       <div className="flex items-center space-x-2">
+                        {index === 0 && <span className="text-2xl" title="Gold Medal">🥇</span>}
+                        {index === 1 && <span className="text-2xl" title="Silver Medal">🥈</span>}
+                        {index === 2 && <span className="text-2xl" title="Bronze Medal">🥉</span>}
                         <span className="text-sm font-medium text-gray-900">#{index + 1}</span>
-                        {index < 3 && (
-                          <span className="text-yellow-500">{'🏆🥈🥉'[index]}</span>
-                        )}
                       </div>
                     </td>
                     <td className="py-3 px-4 font-medium text-gray-900">{city.city}</td>
