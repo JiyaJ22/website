@@ -17,6 +17,7 @@ import base64
 from PIL import Image
 import io
 import json
+import joblib
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
@@ -81,6 +82,19 @@ def load_house_data():
         city_stats = pd.DataFrame()
         house_stats = {}
 
+# Load the retrained linear regression model
+MODEL_PATH = ROOT_DIR.parent / 'linear_regression_model_retrained.joblib'
+MODEL_FEATURES = ['bed', 'bath', 'sqft']  # Will be extended with citi_*
+try:
+    linear_model = joblib.load(MODEL_PATH)
+    # Extract feature names from the model training script
+    # We'll infer city dummies from the model's coef_ and intercept
+    model_feature_names = linear_model.feature_names_in_.tolist()
+except Exception as e:
+    logging.error(f"Could not load retrained linear regression model: {e}")
+    linear_model = None
+    model_feature_names = []
+
 # Data Models
 class HousePredictionInput(BaseModel):
     sqft: int = Field(..., gt=0, description="Square footage of the house")
@@ -126,55 +140,38 @@ def get_price_range(price: float) -> str:
         return "High"
 
 def predict_price_from_data(sqft: int, bed: int, bath: float, city: str) -> Dict[str, Any]:
-    """Predict house price based on data analysis insights"""
-    if house_data is None or len(house_data) == 0:
-        raise HTTPException(status_code=500, detail="House data not loaded")
-    
-    # Base prediction using square footage (strongest correlation factor)
-    # From analysis: sqft has 0.58 correlation with price
-    base_price_per_sqft = house_data['price'].mean() / house_data['sqft'].mean()
-    predicted_price = base_price_per_sqft * sqft
-    
-    # City adjustment factor
-    city_factor = 1.0
-    if city_stats is not None:
-        try:
-            city_avg_price = city_stats.loc[city, ('price', 'mean')]
-            overall_avg_price = house_data['price'].mean()
-            city_factor = city_avg_price / overall_avg_price
-        except:
-            # If city not found, use overall average
-            city_factor = 1.0
-    
-    # Apply city adjustment
-    predicted_price *= city_factor
-    
-    # Bedroom/bathroom adjustments (smaller factors)
-    bed_factor = 1.0 + (bed - house_data['bed'].mean()) * 0.1
-    bath_factor = 1.0 + (bath - house_data['bath'].mean()) * 0.05
-    
-    predicted_price *= bed_factor * bath_factor
-    
-    # Ensure reasonable bounds
-    predicted_price = max(100000, min(predicted_price, 3000000))
+    """Predict house price using the retrained linear regression model"""
+    if linear_model is None or not model_feature_names:
+        raise HTTPException(status_code=500, detail="Linear regression model not loaded")
 
-    # Defensive check: ensure predicted_price is a valid number
+    # Prepare input as a DataFrame with the same columns as the model
+    input_dict = {'bed': [bed], 'bath': [bath], 'sqft': [sqft]}
+    # Add all city dummies as 0, set the correct one to 1
+    for feature in model_feature_names:
+        if feature.startswith('citi_'):
+            input_dict[feature] = [1 if feature == f'citi_{city}' else 0]
+    # Fill missing city dummies with 0 (in case of unknown city)
+    for feature in model_feature_names:
+        if feature.startswith('citi_') and feature not in input_dict:
+            input_dict[feature] = [0]
+    import pandas as pd
+    X_input = pd.DataFrame(input_dict)
+    # Ensure columns are in the same order as model
+    X_input = X_input[model_feature_names]
+    predicted_price = linear_model.predict(X_input)[0]
+    # Defensive check
     if not isinstance(predicted_price, (int, float)) or pd.isna(predicted_price) or np.isnan(predicted_price):
         logging.warning(f"predicted_price is not a valid number: {predicted_price}. Setting to 0.")
         predicted_price = 0.0
-
     factors = {
-        'sqft_factor': f"Square footage is the strongest predictor (correlation: 0.58)",
-        'city_factor': f"City adjustment factor: {city_factor:.2f}",
-        'bed_factor': f"Bedroom adjustment: {bed_factor:.2f}",
-        'bath_factor': f"Bathroom adjustment: {bath_factor:.2f}",
-        'base_price_per_sqft': f"${base_price_per_sqft:.2f}"
+        'model': 'Retrained linear regression (outliers removed, one-hot city, bed, bath, sqft)',
+        'city_feature': f'citi_{city}',
+        'features_used': model_feature_names
     }
-    
     return {
         'predicted_price': float(predicted_price),
         'price_range': get_price_range(predicted_price),
-        'confidence': min(0.85, max(0.60, city_factor * 0.8)),  # Higher confidence for known cities
+        'confidence': 0.8,  # Could be improved with model metrics
         'factors': factors
     }
 

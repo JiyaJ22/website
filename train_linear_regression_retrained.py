@@ -62,11 +62,7 @@ print(f'R^2 score (train): {r2_train:.3f}')
 print('Intercept:', model.intercept_)
 print('Coefficients:')
 for name, coef in zip(X.columns, model.coef_):
-<<<<<<< HEAD:NEW train_linear_regression_retrained.py
-    print(f'{name}: {coef}') 
-=======
     print(f'{name}: {coef}')
 
 # Save the trained model for backend use
 joblib.dump(model, 'linear_regression_model_retrained.joblib') 
->>>>>>> 8b6aa12 (Use retrained linear regression model (outliers removed, one-hot city) for property details and combined prediction; update AI explanation; add model artifact for backend use.):train_linear_regression_retrained.py
