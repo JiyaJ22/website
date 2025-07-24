@@ -323,9 +323,9 @@ const ImageClassifier = () => {
                   This implementation demonstrates the practical application of computer vision and statistical modeling in real estate valuation. 
                   By combining traditional regression analysis with modern neural network architectures, the app provides actionable insights for property price estimation—whether you have a photo, property details, or both.
                 </p>
-              </div>
             </div>
-          )}
+          </div>
+        )}
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
@@ -548,14 +548,12 @@ const ImageClassifier = () => {
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-gray-900">Key Factors</h3>
                 <div className="space-y-2">
-                  {Object.entries(combinedPrediction.data_prediction.factors)
-                    .filter(([key]) => key !== 'features_used')
-                    .map(([key, value]) => (
-                      <div key={key} className="text-sm">
-                        <span className="font-medium text-gray-700">{key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}: </span>
-                        <span className="text-gray-600">{key === 'model' ? 'Linear regression' : value}</span>
-                      </div>
-                    ))}
+                  {Object.entries(combinedPrediction.data_prediction.factors).map(([key, value]) => (
+                    <div key={key} className="text-sm">
+                      <span className="font-medium text-gray-700">{key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}: </span>
+                      <span className="text-gray-600">{value}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
