@@ -204,7 +204,7 @@ const ImageClassifier = () => {
           <h1 className="text-4xl font-bold text-gray-900 mb-4">House Price Image Classifier</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
             This section demonstrates cutting-edge machine learning by analyzing house images to predict price ranges. 
-            <span className="font-semibold text-red-600">Note: This model is trained exclusively on homes in Southern California, so predictions are only valid for properties in that region.</span>
+            <span className="font-semibold">Note: This model is trained exclusively on homes in Southern California, so predictions are only valid for properties in that region.</span>
             It showcases how AI can extract valuable insights from visual data in real estate markets.
           </p>
           <p className="text-lg text-gray-500 max-w-3xl mx-auto">
