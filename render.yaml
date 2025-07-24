@@ -4,7 +4,7 @@ services:
     env: python
     rootDir: backend
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn server:app --host=0.0.0.0 --port=10000
+    startCommand: uvicorn server:app --host=0.0.0.0 --port=$PORT
     plan: free
     envVars:
       - key: MONGO_URL
@@ -21,4 +21,4 @@ services:
     plan: free
     envVars:
       - key: REACT_APP_BACKEND_URL
-        value: https://creo-backend.onrender.com
+        value: https://creo-backend-vhuc.onrender.com
