@@ -109,15 +109,15 @@ const Conclusion = () => {
               <div className="space-y-3">
                 <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
                   <span className="font-medium">Price vs Square Footage</span>
-                  <span className="text-blue-600 font-bold">0.58 (Strong)</span>
+                  <span className="text-blue-600 font-bold">0.58</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
                   <span className="font-medium">Price vs Bedrooms</span>
-                  <span className="text-yellow-600 font-bold">~0.4 (Moderate)</span>
+                  <span className="text-yellow-600 font-bold">~0.4</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-red-50 rounded-lg">
                   <span className="font-medium">Price vs Bathrooms</span>
-                  <span className="text-red-600 font-bold">~0.3 (Weak)</span>
+                  <span className="text-red-600 font-bold">~0.3</span>
                 </div>
               </div>
             </div>
