@@ -204,6 +204,7 @@ const ImageClassifier = () => {
           <h1 className="text-4xl font-bold text-gray-900 mb-4">House Price Image Classifier</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
             This section demonstrates cutting-edge machine learning by analyzing house images to predict price ranges. 
+            <span className="font-semibold text-red-600">Note: This model is trained exclusively on homes in Southern California, so predictions are only valid for properties in that region.</span>
             It showcases how AI can extract valuable insights from visual data in real estate markets.
           </p>
           <p className="text-lg text-gray-500 max-w-3xl mx-auto">
@@ -238,6 +239,9 @@ const ImageClassifier = () => {
                     <strong>Model Type:</strong> Our image classifier uses a <strong>Convolutional Neural Network (CNN)</strong> 
                     implemented through Google's Teachable Machine platform. CNNs are specifically designed for image recognition 
                     tasks, using layers of convolution and pooling operations to detect visual patterns and features.
+                  </p>
+                  <p>
+                    <span className="font-semibold text-red-600">Important: This model was trained only on images of homes in Southern California. It should not be used for properties outside this region, as predictions may not be accurate elsewhere.</span>
                   </p>
                   <p>
                     <strong>Architecture:</strong> The model employs transfer learning, built on a pre-trained MobileNet backbone 
