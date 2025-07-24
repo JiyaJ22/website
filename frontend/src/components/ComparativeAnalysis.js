@@ -247,49 +247,15 @@ const ComparativeAnalysis = () => {
           </div>
         </div>
 
-        {/* Key Insights */}
-        <div className="flex items-center space-x-2 mb-4">
-          <Info size={24} className="text-blue-600" />
-          <h2 className="text-2xl font-bold text-blue-900">Key Insights from Analysis</h2>
-        </div>
-        <div className="bg-blue-50 p-4 rounded-lg mb-8">
-          <p className="text-blue-900 text-lg font-medium">
-            Square footage is the most reliable indicator of house price in this dataset. Bedroom and bathroom counts matter less than the overall space of a home.
+        {/* Combined Key Insights & Statistical Summary */}
+        <div className="bg-blue-50 p-6 rounded-xl mb-8 flex flex-col items-center">
+          <div className="flex items-center space-x-2 mb-2">
+            <Info size={24} className="text-blue-600" />
+            <h2 className="text-2xl font-bold text-blue-900">Key Insights & Statistical Summary</h2>
+          </div>
+          <p className="text-blue-900 text-lg font-medium text-center max-w-2xl">
+            Square footage is the most reliable indicator of house price in this dataset, explaining the largest share of price variation. Bedroom and bathroom counts matter less than the overall space of a home, and have only a weak correlation with price compared to square footage.
           </p>
-        </div>
-
-        {/* Statistical Summary */}
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <div className="flex items-center space-x-2 mb-6">
-            <Activity size={24} className="text-purple-600" />
-            <h2 className="text-2xl font-bold text-gray-900">Statistical Summary</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="text-center">
-              <div className="bg-blue-50 p-4 rounded-lg">
-                <p className="text-sm font-medium text-blue-700">Strongest Predictor</p>
-                <p className="text-2xl font-bold text-blue-900">Square Footage</p>
-                <p className="text-sm text-blue-600">58% of price variation explained</p>
-              </div>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-green-50 p-4 rounded-lg">
-                <p className="text-sm font-medium text-green-700">Secondary Factor</p>
-                <p className="text-2xl font-bold text-green-900">Bedrooms</p>
-                <p className="text-sm text-green-600">Moderate impact on pricing</p>
-              </div>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-purple-50 p-4 rounded-lg">
-                <p className="text-sm font-medium text-purple-700">Tertiary Factor</p>
-                <p className="text-2xl font-bold text-purple-900">Bathrooms</p>
-                <p className="text-sm text-purple-600">Minimal direct impact</p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
