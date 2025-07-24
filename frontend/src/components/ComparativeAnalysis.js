@@ -248,59 +248,14 @@ const ComparativeAnalysis = () => {
         </div>
 
         {/* Key Insights */}
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
-          <div className="flex items-center space-x-2 mb-4">
-            <Info size={24} className="text-blue-600" />
-            <h2 className="text-2xl font-bold text-blue-900">Key Insights from Analysis</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <h3 className="font-semibold text-blue-900 mb-3">📊 Correlation Rankings</h3>
-              <div className="space-y-2">
-                <div className="flex justify-between items-center p-2 bg-white rounded">
-                  <span className="font-medium">1. Square Footage</span>
-                  <span className="text-sm font-bold text-green-600">
-                    {formatCorrelation(vizData?.correlation_matrix?.price_sqft || 0)} (Strongest)
-                  </span>
-                </div>
-                <div className="flex justify-between items-center p-2 bg-white rounded">
-                  <span className="font-medium">2. Bedrooms</span>
-                  <span className="text-sm font-bold text-yellow-600">
-                    {formatCorrelation(vizData?.correlation_matrix?.price_bed || 0)} (Moderate)
-                  </span>
-                </div>
-                <div className="flex justify-between items-center p-2 bg-white rounded">
-                  <span className="font-medium">3. Bathrooms</span>
-                  <span className="text-sm font-bold text-orange-600">
-                    {formatCorrelation(vizData?.correlation_matrix?.price_bath || 0)} (Weakest)
-                  </span>
-                </div>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold text-blue-900 mb-3">🏡 Practical Implications</h3>
-              <ul className="space-y-2 text-blue-800">
-                <li className="flex items-start space-x-2">
-                  <Target size={16} className="mt-1 text-blue-600" />
-                  <span><strong>For Buyers:</strong> Square footage is the most reliable price indicator</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <Target size={16} className="mt-1 text-blue-600" />
-                  <span><strong>For Sellers:</strong> Expanding square footage adds more value than adding rooms</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <Target size={16} className="mt-1 text-blue-600" />
-                  <span><strong>For Investors:</strong> Focus on properties with good sqft-to-price ratios</span>
-                </li>
-                <li className="flex items-start space-x-2">
-                  <Target size={16} className="mt-1 text-blue-600" />
-                  <span><strong>Market Analysis:</strong> Bedroom/bathroom counts matter less than overall space</span>
-                </li>
-              </ul>
-            </div>
-          </div>
+        <div className="flex items-center space-x-2 mb-4">
+          <Info size={24} className="text-blue-600" />
+          <h2 className="text-2xl font-bold text-blue-900">Key Insights from Analysis</h2>
+        </div>
+        <div className="bg-blue-50 p-4 rounded-lg mb-8">
+          <p className="text-blue-900 text-lg font-medium">
+            Square footage is the most reliable indicator of house price in this dataset. Bedroom and bathroom counts matter less than the overall space of a home.
+          </p>
         </div>
 
         {/* Statistical Summary */}
