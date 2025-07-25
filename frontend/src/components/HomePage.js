@@ -190,20 +190,20 @@ const HomePage = () => {
                 <h3 className="text-2xl font-bold text-gray-900">Data Analysis</h3>
               </div>
               <p className="text-gray-700 mb-4">
-                Statistical analysis reveals key factors influencing house prices:
+                Our price prediction engine uses a <strong>linear regression model</strong> trained on cleaned data (with outliers removed) and one-hot encoded city features. This interpretable model quantifies how square footage, bedrooms, bathrooms, and location (city) contribute to price, making it easy to understand and trust the predictions.
               </p>
               <ul className="space-y-2 text-gray-700">
                 <li className="flex items-center space-x-2">
                   <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
-                  <span><strong>Square footage:</strong> Strongest correlation (0.58)</span>
+                  <span><strong>Square footage:</strong> Most reliable price indicator</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
-                  <span><strong>Location:</strong> Major price variation by city</span>
+                  <span><strong>Location (city):</strong> Major price variation by city, handled with one-hot encoding</span>
                 </li>
                 <li className="flex items-center space-x-2">
                   <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
-                  <span><strong>Bedrooms/Bathrooms:</strong> Secondary factors</span>
+                  <span><strong>Bedrooms/Bathrooms:</strong> Weaker predictors, but included for completeness</span>
                 </li>
               </ul>
             </div>
