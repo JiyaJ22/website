@@ -114,7 +114,7 @@ const HomePage = () => {
             ))}
           </div>
         ) : stats ? (
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-6">
             <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
               <div className="flex items-center space-x-2 mb-2">
                 <Database size={20} className="text-blue-600" />
