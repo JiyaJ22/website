@@ -136,13 +136,6 @@ const HomePage = () => {
               </div>
               <p className="text-2xl font-bold text-gray-900">{stats.avg_sqft?.toLocaleString()}</p>
             </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-              <div className="flex items-center space-x-2 mb-2">
-                <Brain size={20} className="text-red-600" />
-                <p className="text-sm text-gray-600">ML Categories</p>
-              </div>
-              <p className="text-2xl font-bold text-gray-900">3</p>
-            </div>
           </div>
         ) : (
           <div className="text-center text-gray-500">
