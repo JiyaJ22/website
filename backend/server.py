@@ -143,7 +143,7 @@ def predict_price_from_data(sqft: int, bed: int, bath: float, city: str) -> Dict
     """Predict house price using the retrained linear regression model"""
     if linear_model is None or not model_feature_names:
         raise HTTPException(status_code=500, detail="Linear regression model not loaded")
-
+    
     # Prepare input as a DataFrame with the same columns as the model
     input_dict = {'bed': [bed], 'bath': [bath], 'sqft': [sqft]}
     # Add all city dummies as 0, set the correct one to 1
@@ -164,9 +164,8 @@ def predict_price_from_data(sqft: int, bed: int, bath: float, city: str) -> Dict
         logging.warning(f"predicted_price is not a valid number: {predicted_price}. Setting to 0.")
         predicted_price = 0.0
     factors = {
-        'model': 'Retrained linear regression (outliers removed, one-hot city, bed, bath, sqft)',
-        'city_feature': f'citi_{city}',
-        'features_used': model_feature_names
+        'model': 'Linear regression model',
+        'city_feature': f'citi_{city}'
     }
     return {
         'predicted_price': float(predicted_price),
