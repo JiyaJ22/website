@@ -8,7 +8,7 @@ const Navigation = () => {
 
   const navItems = [
     { path: "/", label: "Home", icon: Home },
-    { path: "/classifier", label: "Image Classifier", icon: Camera },
+    { path: "/classifier", label: "Price Prediction", icon: Camera },
     { path: "/visualizations", label: "Data Visualizations", icon: BarChart3 },
     { path: "/analysis", label: "Comparative Analysis", icon: TrendingUp },
     { path: "/location", label: "Location Analysis", icon: Map },

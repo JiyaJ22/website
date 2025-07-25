@@ -201,7 +201,7 @@ const ImageClassifier = () => {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">House Price Image Classifier</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">SoCal Home Price Predictor</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
             This section demonstrates cutting-edge machine learning by analyzing house images to predict price ranges. 
             <span className="font-semibold">Note: This model is trained exclusively on homes in Southern California, so predictions are only valid for properties in that region.</span>
