@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Camera, BarChart3, TrendingUp, Map, Target, ArrowRight, Database, Brain, HomeIcon } from "lucide-react";
+import { Camera, BarChart3, TrendingUp, Map, Target, ArrowRight, Database, Brain, HomeIcon, ChevronDown } from "lucide-react";
 import axios from "axios";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
@@ -9,6 +9,7 @@ const API = `${BACKEND_URL}/api`;
 const HomePage = () => {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [methodologyOpen, setMethodologyOpen] = useState(false);
 
   useEffect(() => {
     fetchStats();
@@ -28,7 +29,7 @@ const HomePage = () => {
   const features = [
     {
       icon: Camera,
-      title: "Image Classification",
+      title: "Price Prediction",
       description: "Upload house images and get instant price predictions using Google Teachable Machine",
       path: "/classifier",
       color: "bg-blue-500"
@@ -57,7 +58,7 @@ const HomePage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-blue-100">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -75,7 +76,7 @@ const HomePage = () => {
               A comprehensive data science project combining image classification and statistical analysis
               to predict house prices across 15,000+ Southern California homes
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <Link
                 to="/classifier"
                 className="bg-white text-blue-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors flex items-center space-x-2 shadow-lg"
@@ -83,135 +84,12 @@ const HomePage = () => {
                 <Camera size={24} />
                 <span>Try the Price Predictor</span>
               </Link>
-              <Link
-                to="/visualizations"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-blue-600 transition-colors flex items-center space-x-2"
-              >
-                <BarChart3 size={24} />
-                <span>View Data Analysis</span>
-              </Link>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Stats Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Dataset Overview</h2>
-          <p className="text-xl text-gray-600">
-            Comprehensive analysis of Southern California real estate market
-          </p>
-        </div>
-
-        {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="bg-white p-6 rounded-xl shadow-sm animate-pulse">
-                <div className="h-4 bg-gray-200 rounded mb-2"></div>
-                <div className="h-8 bg-gray-200 rounded"></div>
-              </div>
-            ))}
-          </div>
-        ) : stats ? (
-          <div className="flex flex-col md:flex-row justify-center items-center gap-6">
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-              <div className="flex items-center space-x-2 mb-2">
-                <Database size={20} className="text-blue-600" />
-                <p className="text-sm text-gray-600">Total Houses</p>
-              </div>
-              <p className="text-2xl font-bold text-gray-900">{stats.total_houses?.toLocaleString()}</p>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-              <div className="flex items-center space-x-2 mb-2">
-                <Target size={20} className="text-green-600" />
-                <p className="text-sm text-gray-600">Average Price</p>
-              </div>
-              <p className="text-2xl font-bold text-gray-900">${stats.avg_price?.toLocaleString()}</p>
-            </div>
-            <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
-              <div className="flex items-center space-x-2 mb-2">
-                <HomeIcon size={20} className="text-purple-600" />
-                <p className="text-sm text-gray-600">Average Sqft</p>
-              </div>
-              <p className="text-2xl font-bold text-gray-900">{stats.avg_sqft?.toLocaleString()}</p>
-            </div>
-          </div>
-        ) : (
-          <div className="text-center text-gray-500">
-            Unable to load statistics
-          </div>
-        )}
-      </div>
-
-      {/* Approach Section */}
-      <div className="bg-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Dual-Approach Methodology</h2>
-            <p className="text-xl text-gray-600">
-              Combining machine learning and statistical analysis for comprehensive price prediction
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="bg-blue-600 text-white p-3 rounded-lg">
-                  <Camera size={24} />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">Image Classification</h3>
-              </div>
-              <p className="text-gray-700 mb-4">
-                Using Google Teachable Machine, we trained a model on 105 randomly selected house images
-                to classify properties into three price categories:
-              </p>
-              <ul className="space-y-2 text-gray-700">
-                <li className="flex items-center space-x-2">
-                  <span className="w-3 h-3 bg-green-500 rounded-full"></span>
-                  <span><strong>Low:</strong> $195,000 - $796,666</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-3 h-3 bg-yellow-500 rounded-full"></span>
-                  <span><strong>Mid:</strong> $796,667 - $1,398,333</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-3 h-3 bg-red-500 rounded-full"></span>
-                  <span><strong>High:</strong> $1,398,334 - $2,000,000</span>
-                </li>
-              </ul>
-            </div>
-
-            <div className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-xl">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="bg-green-600 text-white p-3 rounded-lg">
-                  <TrendingUp size={24} />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900">Data Analysis</h3>
-              </div>
-              <p className="text-gray-700 mb-4">
-                Our price prediction engine uses a <strong>linear regression model</strong> trained on cleaned data (with outliers removed) and one-hot encoded city features. This interpretable model quantifies how square footage, bedrooms, bathrooms, and location (city) contribute to price, making it easy to understand and trust the predictions.
-              </p>
-              <ul className="space-y-2 text-gray-700">
-                <li className="flex items-center space-x-2">
-                  <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
-                  <span><strong>Square footage:</strong> Most reliable price indicator</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
-                  <span><strong>Location (city):</strong> Major price variation by city, handled with one-hot encoding</span>
-                </li>
-                <li className="flex items-center space-x-2">
-                  <span className="w-3 h-3 bg-blue-500 rounded-full"></span>
-                  <span><strong>Bedrooms/Bathrooms:</strong> Weaker predictors, but included for completeness</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Features Section */}
+      {/* Features Section - Moved above Dual Methodology */}
       <div className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -249,6 +127,141 @@ const HomePage = () => {
               );
             })}
           </div>
+        </div>
+      </div>
+
+      {/* Dataset Overview - Moved above Dual Methodology */}
+      <div className="bg-white py-12 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Dataset Overview</h2>
+            <p className="text-lg text-gray-600">
+              Comprehensive analysis of Southern California real estate market
+            </p>
+          </div>
+
+          {loading ? (
+            <div className="flex justify-center items-center gap-6">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="bg-gray-100 p-4 rounded-lg animate-pulse w-32">
+                  <div className="h-3 bg-gray-200 rounded mb-2"></div>
+                  <div className="h-6 bg-gray-200 rounded"></div>
+                </div>
+              ))}
+            </div>
+          ) : stats ? (
+            <div className="flex justify-center items-center gap-6">
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <div className="flex items-center space-x-2 mb-1">
+                  <Database size={16} className="text-blue-600" />
+                  <p className="text-xs text-gray-600">Total Houses</p>
+                </div>
+                <p className="text-lg font-bold text-gray-900">{stats.total_houses?.toLocaleString()}</p>
+              </div>
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <div className="flex items-center space-x-2 mb-1">
+                  <Target size={16} className="text-green-600" />
+                  <p className="text-xs text-gray-600">Average Price</p>
+                </div>
+                <p className="text-lg font-bold text-gray-900">${stats.avg_price?.toLocaleString()}</p>
+              </div>
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <div className="flex items-center space-x-2 mb-1">
+                  <HomeIcon size={16} className="text-purple-600" />
+                  <p className="text-xs text-gray-600">Average Sqft</p>
+                </div>
+                <p className="text-lg font-bold text-gray-900">{stats.avg_sqft?.toLocaleString()}</p>
+              </div>
+            </div>
+          ) : (
+            <div className="text-center text-gray-500">
+              Unable to load statistics
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Dual-Approach Methodology Dropdown Section - Moved below Dataset Overview */}
+      <div className="bg-white py-12 border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <button
+            onClick={() => setMethodologyOpen(!methodologyOpen)}
+            className="w-full text-center mb-6 group"
+          >
+            <div className="flex items-center justify-center space-x-3 mb-3">
+              <Brain size={28} className="text-blue-600" />
+              <h2 className="text-2xl font-bold text-gray-900">Dual-Approach Methodology</h2>
+              <ChevronDown 
+                size={28} 
+                className={`text-blue-600 transition-transform duration-300 ${
+                  methodologyOpen ? 'rotate-180' : ''
+                }`}
+              />
+            </div>
+            <p className="text-lg text-gray-600 mb-3">
+              Combining machine learning and statistical analysis for comprehensive price prediction
+            </p>
+            <div className="text-blue-600 font-medium">
+              {methodologyOpen ? 'Click to collapse' : 'Click to expand'}
+            </div>
+          </button>
+
+          {methodologyOpen && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-in slide-in-from-top-2 duration-300">
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl border border-blue-200">
+                <div className="flex items-center space-x-3 mb-3">
+                  <div className="bg-blue-600 text-white p-2 rounded-lg">
+                    <Camera size={20} />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900">Image Classification</h3>
+                </div>
+                <p className="text-gray-700 mb-3 text-sm">
+                  Using Google Teachable Machine, we trained a model on 105 randomly selected house images
+                  to classify properties into three price categories:
+                </p>
+                <ul className="space-y-1 text-gray-700 text-sm">
+                  <li className="flex items-center space-x-2">
+                    <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                    <span><strong>Low:</strong> $195,000 - $796,666</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <span className="w-2 h-2 bg-yellow-500 rounded-full"></span>
+                    <span><strong>Mid:</strong> $796,667 - $1,398,333</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+                    <span><strong>High:</strong> $1,398,334 - $2,000,000</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border border-green-200">
+                <div className="flex items-center space-x-3 mb-3">
+                  <div className="bg-green-600 text-white p-2 rounded-lg">
+                    <TrendingUp size={20} />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900">Data Analysis</h3>
+                </div>
+                <p className="text-gray-700 mb-3 text-sm">
+                  Our price prediction engine uses a <strong>linear regression model</strong> trained on cleaned data (with outliers removed) and one-hot encoded city features. This interpretable model quantifies how square footage, bedrooms, bathrooms, and location (city) contribute to price, making it easy to understand and trust the predictions.
+                </p>
+                <ul className="space-y-1 text-gray-700 text-sm">
+                  <li className="flex items-center space-x-2">
+                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                    <span><strong>Square footage:</strong> Most reliable price indicator</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                    <span><strong>Location (city):</strong> Major price variation by city, handled with one-hot encoding</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                    <span><strong>Bedrooms/Bathrooms:</strong> Weaker predictors, but included for completeness</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

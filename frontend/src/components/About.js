@@ -3,14 +3,14 @@ import { User, Code, Database, Brain, Github, Linkedin, Mail, ExternalLink } fro
 
 const About = () => {
   const tools = [
-    { name: "Python", icon: "🐍", description: "Data analysis, backend API development" },
-    { name: "Pandas", icon: "🐼", description: "Data manipulation and statistical analysis" },
-    { name: "React", icon: "⚛️", description: "Interactive frontend development" },
-    { name: "FastAPI", icon: "🚀", description: "RESTful API backend" },
-    { name: "TensorFlow.js", icon: "🧠", description: "Machine learning in the browser" },
-    { name: "Teachable Machine", icon: "🤖", description: "No-code machine learning" },
-    { name: "Seaborn & Matplotlib", icon: "📊", description: "Data visualization" },
-    { name: "Tailwind CSS", icon: "🎨", description: "Responsive UI design" }
+    { name: "Python", description: "Data analysis, backend API development" },
+    { name: "Pandas", description: "Data manipulation and statistical analysis" },
+    { name: "React", description: "Interactive frontend development" },
+    { name: "FastAPI", description: "RESTful API backend" },
+    { name: "TensorFlow.js", description: "Machine learning in the browser" },
+    { name: "Teachable Machine", description: "No-code machine learning" },
+    { name: "Seaborn & Matplotlib", description: "Data visualization" },
+    { name: "Tailwind CSS", description: "Responsive UI design" }
   ];
 
   const achievements = [
@@ -37,14 +37,16 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-blue-100 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">About This Project</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A comprehensive data science project combining statistical analysis, machine learning, 
-            and full-stack development to predict Southern California house prices
-          </p>
+          <div className="bg-blue-800 text-white py-8 rounded-lg mb-8">
+            <h1 className="text-4xl font-bold mb-4">About This Project</h1>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+              A comprehensive data science project combining statistical analysis, machine learning, 
+              and full-stack development to predict Southern California house prices
+            </p>
+          </div>
         </div>
 
         {/* Project Overview */}
@@ -56,7 +58,7 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">🎯 Project Goals</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Project Goals</h3>
               <ul className="space-y-2 text-gray-700">
                 <li>• Analyze factors influencing house prices in Southern California</li>
                 <li>• Develop both traditional statistical and AI-powered prediction models</li>
@@ -66,7 +68,7 @@ const About = () => {
             </div>
             
             <div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">📊 Key Discoveries</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Key Discoveries</h3>
               <ul className="space-y-2 text-gray-700">
                 <li>• Square footage is the strongest price predictor (0.58 correlation)</li>
                 <li>• Location has massive impact on pricing (10x+ variation)</li>
@@ -83,7 +85,7 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-lg font-semibold text-blue-900 mb-4">🔧 Data Processing Pipeline</h3>
+              <h3 className="text-lg font-semibold text-blue-900 mb-4">Data Processing Pipeline</h3>
               <div className="space-y-3">
                 <div className="bg-white p-3 rounded-lg">
                   <p className="font-medium text-blue-900">Data Collection</p>
@@ -127,7 +129,6 @@ const About = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {tools.map((tool, index) => (
               <div key={index} className="text-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                <div className="text-2xl mb-2">{tool.icon}</div>
                 <h3 className="font-semibold text-gray-900 mb-1">{tool.name}</h3>
                 <p className="text-xs text-gray-600">{tool.description}</p>
               </div>
@@ -163,7 +164,7 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
-              <h3 className="font-semibold text-gray-900 mb-3">📊 Data Science</h3>
+                              <h3 className="font-semibold text-gray-900 mb-3">Data Science</h3>
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li>• Correlation analysis and statistical significance</li>
                 <li>• Data visualization best practices</li>
@@ -173,7 +174,7 @@ const About = () => {
             </div>
             
             <div>
-              <h3 className="font-semibold text-gray-900 mb-3">🤖 Machine Learning</h3>
+              <h3 className="font-semibold text-gray-900 mb-3">Machine Learning</h3>
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li>• Image classification model training</li>
                 <li>• No-code ML with Teachable Machine</li>
@@ -183,7 +184,7 @@ const About = () => {
             </div>
             
             <div>
-              <h3 className="font-semibold text-gray-900 mb-3">💻 Full-Stack Development</h3>
+              <h3 className="font-semibold text-gray-900 mb-3">Full-Stack Development</h3>
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li>• RESTful API design and implementation</li>
                 <li>• Interactive frontend development</li>
@@ -200,7 +201,7 @@ const About = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 className="font-semibold text-purple-900 mb-3">🔮 Enhanced Modeling</h3>
+              <h3 className="font-semibold text-purple-900 mb-3">Enhanced Modeling</h3>
               <ul className="space-y-2 text-purple-800 text-sm">
                 <li>• Increase training dataset size for better accuracy</li>
                 <li>• Implement advanced neural network architectures</li>
@@ -210,7 +211,7 @@ const About = () => {
             </div>
             
             <div>
-              <h3 className="font-semibold text-purple-900 mb-3">🚀 Platform Expansion</h3>
+              <h3 className="font-semibold text-purple-900 mb-3">Platform Expansion</h3>
               <ul className="space-y-2 text-purple-800 text-sm">
                 <li>• Extend to other geographic regions</li>
                 <li>• Add real-time market data integration</li>

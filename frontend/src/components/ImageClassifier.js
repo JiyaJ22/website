@@ -198,19 +198,21 @@ const ImageClassifier = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-blue-100 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">SoCal Home Price Predictor</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
-            This section demonstrates cutting-edge machine learning by analyzing house images to predict price ranges. 
-            <span className="font-semibold">Note: This model is trained exclusively on homes in Southern California, so predictions are only valid for properties in that region.</span>
-            It showcases how AI can extract valuable insights from visual data in real estate markets.
-          </p>
-          <p className="text-lg text-gray-500 max-w-3xl mx-auto">
-            Upload a house image and provide property details to get both AI-powered image classification
-            and data-driven price predictions
-          </p>
+          <div className="bg-blue-800 text-white py-8 rounded-lg mb-8">
+            <h1 className="text-4xl font-bold mb-4">SoCal Home Price Predictor</h1>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-4">
+              This section demonstrates cutting-edge machine learning by analyzing house images to predict price ranges. 
+              <span className="font-semibold">Note: This model is trained exclusively on homes in Southern California, so predictions are only valid for properties in that region.</span>
+              It showcases how AI can extract valuable insights from visual data in real estate markets.
+            </p>
+            <p className="text-lg text-blue-200 max-w-3xl mx-auto">
+              Upload a house image and provide property details to get both AI-powered image classification
+              and data-driven price predictions
+            </p>
+          </div>
         </div>
 
         {/* In-Depth AI Model Explanation - Collapsible (moved up) */}
@@ -275,7 +277,7 @@ const ImageClassifier = () => {
 
               {/* Data Preprocessing Section */}
               <div className="border-l-4 border-green-500 pl-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">⚙️ Data Preprocessing Pipeline</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Data Preprocessing Pipeline</h3>
                 <div className="space-y-3 text-gray-700">
                   <p>
                     <strong>Image Processing:</strong> All uploaded images undergo standardized preprocessing:
@@ -552,12 +554,14 @@ const ImageClassifier = () => {
               <div className="space-y-4">
                 <h3 className="text-lg font-semibold text-gray-900">Key Factors</h3>
                 <div className="space-y-2">
-                  {Object.entries(combinedPrediction.data_prediction.factors).map(([key, value]) => (
-                    <div key={key} className="text-sm">
-                      <span className="font-medium text-gray-700">{key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}: </span>
-                      <span className="text-gray-600">{value}</span>
-                    </div>
-                  ))}
+                  {Object.entries(combinedPrediction.data_prediction.factors)
+                    .filter(([key]) => key !== 'features_used')
+                    .map(([key, value]) => (
+                      <div key={key} className="text-sm">
+                        <span className="font-medium text-gray-700">{key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}: </span>
+                        <span className="text-gray-600">{key === 'model' ? 'Linear regression model' : value}</span>
+                      </div>
+                    ))}
                 </div>
               </div>
             </div>

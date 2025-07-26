@@ -75,14 +75,16 @@ const ComparativeAnalysis = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-blue-100 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Comparative Analysis</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Discover correlations between square footage, bedrooms, bathrooms, and house prices
-            through scatter plots, box plots, and correlation analysis
-          </p>
+          <div className="bg-blue-800 text-white py-8 rounded-lg mb-8">
+            <h1 className="text-4xl font-bold mb-4">Comparative Analysis</h1>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+              Discover correlations between square footage, bedrooms, bathrooms, and house prices
+              through scatter plots, box plots, and correlation analysis
+            </p>
+          </div>
         </div>
 
         {/* Correlation Matrix */}
@@ -170,7 +172,7 @@ const ComparativeAnalysis = () => {
           
           <div className="mb-6">
             <img 
-              src="/NEW factor vs price box plots.png" 
+              src="NEW-factor-vs-price-box-plots.png"
               alt="Multi-factor Box Plot Analysis"
               className="w-full max-w-5xl mx-auto rounded-lg shadow-sm"
               onError={(e) => {
@@ -207,7 +209,7 @@ const ComparativeAnalysis = () => {
           
           <div className="mb-6">
             <img 
-              src="/NEW 3 factor vs price scatterplot.png" 
+              src="NEW-3-factor-vs-price-scatterplot.png"
               alt="Multi-factor Scatter Plot Analysis"
               className="w-full max-w-5xl mx-auto rounded-lg shadow-sm"
               onError={(e) => {

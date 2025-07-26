@@ -57,7 +57,7 @@ const DataVisualizations = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 py-8">
+      <div className="min-h-screen bg-blue-50 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
@@ -70,7 +70,7 @@ const DataVisualizations = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-50 py-8">
+      <div className="min-h-screen bg-blue-50 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="bg-red-50 border border-red-200 rounded-lg p-6">
@@ -83,18 +83,20 @@ const DataVisualizations = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-blue-100 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Data Visualizations</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
-            This section presents comprehensive visual analysis of our Southern California housing dataset. 
-            Understanding these patterns helps reveal market trends and pricing factors that drive our predictive models.
-          </p>
-          <p className="text-lg text-gray-500 max-w-3xl mx-auto">
-            Explore charts showing price distributions, property features, and market patterns
-            across {stats?.total_houses?.toLocaleString()} Southern California homes
-          </p>
+          <div className="bg-blue-800 text-white py-8 rounded-lg mb-8">
+            <h1 className="text-4xl font-bold mb-4">Data Visualizations</h1>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-4">
+              This section presents comprehensive visual analysis of our Southern California housing dataset. 
+              Understanding these patterns helps reveal market trends and pricing factors that drive our predictive models.
+            </p>
+            <p className="text-lg text-blue-200 max-w-3xl mx-auto">
+              Explore charts showing price distributions, property features, and market patterns
+              across {stats?.total_houses?.toLocaleString()} Southern California homes
+            </p>
+          </div>
         </div>
 
         {/* Overview Stats */}
@@ -138,7 +140,7 @@ const DataVisualizations = () => {
           
           <div className="mb-6">
             <img 
-              src="/house prices historgram.png" 
+              src="house-prices-historgram.png"
               alt="House Price Distribution Histogram"
               className="w-full max-w-4xl mx-auto rounded-lg shadow-sm"
               onError={(e) => {
@@ -206,7 +208,7 @@ const DataVisualizations = () => {
           
           <div className="mb-4">
             <img 
-              src="/house sqft histogram.png" 
+              src="house-sqft-histogram.png"
               alt="House Square Footage Distribution"
               className="w-full max-w-4xl mx-auto rounded-lg shadow-sm"
               onError={(e) => {
@@ -229,156 +231,6 @@ const DataVisualizations = () => {
                 Most homes range from 1,000 to 3,000 square feet, with the majority clustered around the average
               </p>
             </div>
-          </div>
-        </div>
-
-        {/* Bedrooms Distribution */}
-        <div className="bg-white rounded-xl shadow-sm p-6 mb-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="md:col-span-2">
-            <div className="flex items-center space-x-2 mb-6">
-              <BarChart3 size={24} className="text-green-600" />
-              <h2 className="text-2xl font-bold text-gray-900">Bedrooms Distribution</h2>
-            </div>
-            <div className="mb-6">
-              {(() => {
-                const threshold = 100;
-                const allEntries = Object.entries(stats?.bed_distribution || {});
-                // Sort numerically by bedroom count
-                const common = allEntries.filter(([_, count]) => count > threshold)
-                  .sort((a, b) => Number(a[0]) - Number(b[0]));
-                return (
-                  <Bar
-                    data={{
-                      labels: common.map(([beds]) => beds),
-                      datasets: [
-                        {
-                          label: 'Number of Houses',
-                          data: common.map(([_, count]) => count),
-                          backgroundColor: 'rgba(34,197,94,0.7)',
-                        },
-                      ],
-                    }}
-                    options={{
-                      indexAxis: 'y',
-                      plugins: {
-                        legend: { display: false },
-                        title: { display: false },
-                        tooltip: { enabled: true },
-                      },
-                      scales: {
-                        x: { beginAtZero: true, title: { display: true, text: 'Number of Houses' } },
-                        y: { title: { display: true, text: 'Bedrooms' } },
-                      },
-                      responsive: true,
-                      maintainAspectRatio: false,
-                      height: 300,
-                    }}
-                    height={300}
-                  />
-                );
-              })()}
-            </div>
-          </div>
-          {/* Table for Rare Bedroom Classes */}
-          <div className="overflow-auto">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Rare Classes (≤ 100 Houses)</h3>
-            <table className="min-w-max text-sm">
-              <thead>
-                <tr>
-                  <th className="text-left pr-4">Bedrooms</th>
-                  <th className="text-right"># Houses</th>
-                </tr>
-              </thead>
-              <tbody>
-                {Object.entries(stats?.bed_distribution || {})
-                  .filter(([_, count]) => count <= 100)
-                  .sort((a, b) => Number(a[0]) - Number(b[0]))
-                  .map(([beds, count]) => (
-                    <tr key={beds}>
-                      <td className="pr-4">{beds}</td>
-                      <td className="text-right">{formatNumber(count)}</td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        {/* Bathrooms Distribution */}
-        <div className="bg-white rounded-xl shadow-sm p-6 mb-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="md:col-span-2">
-            <div className="flex items-center space-x-2 mb-6">
-              <BarChart3 size={24} className="text-blue-600" />
-              <h2 className="text-2xl font-bold text-gray-900">Bathrooms Distribution</h2>
-            </div>
-            <div className="mb-6">
-              {(() => {
-                const threshold = 100;
-                const allEntries = Object.entries(stats?.bath_distribution || {});
-                // Sort numerically by bathroom count
-                const common = allEntries.filter(([_, count]) => count > threshold)
-                  .sort((a, b) => Number(a[0]) - Number(b[0]));
-                return (
-                  <Bar
-                    data={{
-                      labels: common.map(([baths]) => baths),
-                      datasets: [
-                        {
-                          label: 'Number of Houses',
-                          data: common.map(([_, count]) => count),
-                          backgroundColor: 'rgba(59,130,246,0.7)',
-                        },
-                      ],
-                    }}
-                    options={{
-                      indexAxis: 'y',
-                      plugins: {
-                        legend: { display: false },
-                        title: { display: false },
-                        tooltip: { enabled: true },
-                      },
-                      scales: {
-                        x: { beginAtZero: true, title: { display: true, text: 'Number of Houses' } },
-                        y: { title: { display: true, text: 'Bathrooms' } },
-                      },
-                      responsive: true,
-                      maintainAspectRatio: false,
-                      height: 300,
-                    }}
-                    height={300}
-                  />
-                );
-              })()}
-            </div>
-            {/* Explanatory note for bathrooms */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
-              <p className="text-sm text-blue-800">
-                <strong>Note:</strong> Bathroom numbers are shown as <code>full.half</code>. For example, <code>5.2</code> means 5 full baths and 2 half baths.
-              </p>
-            </div>
-          </div>
-          {/* Table for Rare Bathroom Classes */}
-          <div className="overflow-auto">
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Rare Classes (≤ 100 Houses)</h3>
-            <table className="min-w-max text-sm">
-              <thead>
-                <tr>
-                  <th className="text-left pr-4">Bathrooms</th>
-                  <th className="text-right"># Houses</th>
-                </tr>
-              </thead>
-              <tbody>
-                {Object.entries(stats?.bath_distribution || {})
-                  .filter(([_, count]) => count <= 100)
-                  .sort((a, b) => Number(a[0]) - Number(b[0]))
-                  .map(([baths, count]) => (
-                    <tr key={baths}>
-                      <td className="pr-4">{baths}</td>
-                      <td className="text-right">{formatNumber(count)}</td>
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
           </div>
         </div>
 

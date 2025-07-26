@@ -1,0 +1,29 @@
+mean sqft: 2,173.91
+mean price: 703046.82
+mean bath: 2.453250614
+mean  bed: 3.676375405
+
+median sqft: 1951
+median price: 639000
+median bath: 2.1
+median bed: 3
+
+Standard deviation sqft: 1025.30648
+Standard deviation price: 376,963.973
+Standard deviation bath: .95871078
+Standard deviation bed: 1.03480426
+
+min sqft: 280
+min price: 195,000.00
+min bath: 0
+min bed: 1
+
+max sqft: 17667.00
+max price: 2,000,000.00
+max bath: 36
+max bed: 12
+
+Outliers:
+House with 36 bathrooms
+House with 11 bedrooms
+House with 12 bedrooms
