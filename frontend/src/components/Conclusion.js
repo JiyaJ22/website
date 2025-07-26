@@ -107,7 +107,7 @@ const Conclusion = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">📊 Correlation Analysis</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Correlation Analysis</h3>
               <div className="space-y-3">
                 <div className="flex justify-between items-center p-3 bg-blue-50 rounded-lg">
                   <span className="font-medium">Price vs Square Footage</span>
@@ -125,7 +125,7 @@ const Conclusion = () => {
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">🏠 Market Characteristics</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Market Characteristics</h3>
               <div className="space-y-3">
                 <div className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                   <span className="font-medium">Total Properties Analyzed</span>
@@ -150,7 +150,7 @@ const Conclusion = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-lg font-semibold text-blue-900 mb-4">🤖 Image Classification</h3>
+              <h3 className="text-lg font-semibold text-blue-900 mb-4">Image Classification</h3>
               <ul className="space-y-2 text-blue-800">
                 <li className="flex items-start space-x-2">
                   <CheckCircle size={16} className="mt-1 text-blue-600" />
@@ -172,7 +172,7 @@ const Conclusion = () => {
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold text-blue-900 mb-4">📊 Statistical Analysis</h3>
+              <h3 className="text-lg font-semibold text-blue-900 mb-4">Statistical Analysis</h3>
               <ul className="space-y-2 text-blue-800">
                 <li className="flex items-start space-x-2">
                   <CheckCircle size={16} className="mt-1 text-blue-600" />
@@ -202,7 +202,7 @@ const Conclusion = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {recommendations.map((rec, index) => (
               <div key={index} className="border border-gray-200 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">👥 {rec.audience}</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">{rec.audience}</h3>
                 <ul className="space-y-2">
                   {rec.tips.map((tip, tipIndex) => (
                     <li key={tipIndex} className="flex items-start space-x-2">

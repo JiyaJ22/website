@@ -103,7 +103,7 @@ const About = () => {
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold text-blue-900 mb-4">🤖 Machine Learning Workflow</h3>
+              <h3 className="text-lg font-semibold text-blue-900 mb-4">Machine Learning Workflow</h3>
               <div className="space-y-3">
                 <div className="bg-white p-3 rounded-lg">
                   <p className="font-medium text-blue-900">Image Classification</p>
